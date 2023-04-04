@@ -18,6 +18,10 @@ const UserSchema = new mongoose.Schema(
       default: "normal",
       required: [true, "please specify user role"],
     },
+    post: {
+      type: Array,
+    },
+ 
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );

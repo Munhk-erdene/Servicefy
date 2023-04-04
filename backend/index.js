@@ -6,7 +6,7 @@ import router from "./router/service.js";
 import routerUser from "./router/user.js";
 dotenv.config();
 const uri = process.env.MONGO_URI || "";
-const port = process.env.PORT || 1234;
+const port = process.env.PORT || 6969;
 const app = express();
 
 app.use(cors());

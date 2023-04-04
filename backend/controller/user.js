@@ -32,9 +32,10 @@ export const getUser = async (req, res) => {
   }
 };
 
+
 export const createUser = async (req, res) => {
   try {
-    const user = await User.create(req.body);
+    const user = await User.create(req.body);;
     res.status(200).send({
       success: true,
       data: user,
@@ -46,6 +47,21 @@ export const createUser = async (req, res) => {
     });
   }
 };
+export const createPost = async (req, res) => {
+  try {
+    const user = await User.create(req.body).populate("post");;
+    res.status(200).send({
+      success: true,
+      data: user,
+    });
+  } catch (error) {
+    res.status(400).send({
+      success: false,
+      data: error.message,
+    });
+  }
+};
+
 export const deleteUser = async (req, res) => {
   try {
     const { id } = req.params;
@@ -93,28 +109,7 @@ export const login = async (req, res) => {
   }
 };
 
-export const sags = async (req, res) => {
-  const { id } = req.params;
-  try {
-    const user = await User.findByIdAndUpdate(
-      { _id: id },
-      {
-        $push: {
-          sagsItem: req.body,
-        },
-      }
-    );
-    res.status(200).send({
-      success: true,
-      data: user,
-    });
-  } catch (error) {
-    res.status(400).send({
-      success: false,
-      data: error.message,
-    });
-  }
-};
+
 export const removeSags = async (req, res) => {
   const { id } = req.params;
 
@@ -139,14 +134,14 @@ export const removeSags = async (req, res) => {
     });
   }
 };
-export const wishlist = async (req, res) => {
+export const post = async (req, res) => {
   const { id } = req.params;
   try {
     const user = await User.findByIdAndUpdate(
       { _id: id },
       {
         $push: {
-          wishlist: req.body,
+          post: req.body,
         },
       }
     );
