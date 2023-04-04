@@ -10,7 +10,7 @@ const ServiceSchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    enum: ["food", "travel", "massage", "fix"],
+    enum: ["food", "travel", "massage", "fix","relax"],
   },
   locate:{
     type:String,
