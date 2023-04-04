@@ -18,15 +18,6 @@ const UserSchema = new mongoose.Schema(
       default: "normal",
       required: [true, "please specify user role"],
     },
-    sagsItem: {
-      type: Array,
-    },
-    wishlist: {
-      type: Array,
-    },
-    order: {
-      type: Array,
-    },
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
