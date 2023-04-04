@@ -21,7 +21,9 @@ const UserSchema = new mongoose.Schema(
     post: {
       type: Array,
     },
- 
+    comment: {
+      type: Array,
+    },
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
