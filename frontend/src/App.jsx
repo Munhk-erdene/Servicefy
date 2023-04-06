@@ -1,4 +1,3 @@
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import Home from "./pages/Home";
@@ -9,6 +8,7 @@ export const instance = axios.create({
     "Content-type": "application/json; charset=UTF-8",
   },
 });
+import Login from "./pages/Login";
 function App() {
   return (
     <div className="App">
@@ -16,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Register" element={<Register />} />
+          <Route path={"/Login"} element={<Login />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
