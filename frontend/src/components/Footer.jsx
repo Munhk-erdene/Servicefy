@@ -1,90 +1,90 @@
 const Footer = () => {
-    const styles = {
-        footerContainer: {
-            width: "100%",
-            backgroundColor: "#2573DA",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "100px 0",
-            gap: "50px",
-          },
-          topFooter: {
-            width: "80%",
-            display: "flex",
-            justifyContent: "space-between",
-          },
-          supportsContainer: {
-            display: "flex",
-            width: "50%",
-            justifyContent: "space-between"
-          },
-          supports: {
-            display: "flex",
-            flexDirection: "column",
-            gap: "20px"
-          },
-          footerTitle: {
-            color: "#ffffff",
-            fontWeight: "bold",
-            fontFamily: "Roboto Condensed",
-            fontSize: "15px",
-            cursor: "pointer",
-          },
-          footerNames: {
-            color: "#ffffff96",
-            fontFamily: "Roboto Condensed",
-            fontSize: "15px",
-            cursor: "pointer",
-          },
-          connections: {
-            display: "flex",
-            gap: "20px"
-          },
-          connectionIcons: {
-            width: "fit-content",
-            height: "fit-content",
-            borderRadius: "50%",
-            backgroundColor: "#ffffff96",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "5px",
-            cursor: "pointer"
-          },
-          nikeBagAndFavIcon: {
-            width: "24px",
-            cursor: "pointer",
-          },
-          botFooter: {
-            width: "80%",
-            display: "flex",
-            justifyContent: "space-between"
-          },
-          botSideOne: {
-            display: "flex",
-            alignItems: "center",
-            gap: "30px",
-          },
-          botSideTwo: {
-            display: "flex",
-            gap: "30px",
-          },
-          locationContainer: {
-            display: "flex",
-            alignItems: "center",
-            gap: "10px"
-          },
-          connectionIconsLoc: {
-            borderRadius: "50%",
-            backgroundColor: "#ffffff",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "5px"
-          }
-    }
+  const styles = {
+    footerContainer: {
+      width: "100%",
+      backgroundColor: "#2573DA",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+      alignItems: "center",
+      padding: "100px 0",
+      gap: "50px",
+    },
+    topFooter: {
+      width: "80%",
+      display: "flex",
+      justifyContent: "space-between",
+    },
+    supportsContainer: {
+      display: "flex",
+      width: "50%",
+      justifyContent: "space-between",
+    },
+    supports: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "20px",
+    },
+    footerTitle: {
+      color: "#ffffff",
+      fontWeight: "bolder",
+      fontFamily: "Roboto Condensed",
+      fontSize: "15px",
+      cursor: "pointer",
+    },
+    footerNames: {
+      color: "#ffffff96",
+      fontFamily: "Roboto Condensed",
+      fontSize: "15px",
+      cursor: "pointer",
+    },
+    connections: {
+      display: "flex",
+      gap: "20px",
+    },
+    connectionIcons: {
+      width: "fit-content",
+      height: "fit-content",
+      borderRadius: "50%",
+      backgroundColor: "#ffffff96",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      padding: "5px",
+      cursor: "pointer",
+    },
+    nikeBagAndFavIcon: {
+      width: "24px",
+      cursor: "pointer",
+    },
+    botFooter: {
+      width: "80%",
+      display: "flex",
+      justifyContent: "space-between",
+    },
+    botSideOne: {
+      display: "flex",
+      alignItems: "center",
+      gap: "30px",
+    },
+    botSideTwo: {
+      display: "flex",
+      gap: "30px",
+    },
+    locationContainer: {
+      display: "flex",
+      alignItems: "center",
+      gap: "10px",
+    },
+    connectionIconsLoc: {
+      borderRadius: "50%",
+      backgroundColor: "#ffffff",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      padding: "5px",
+    },
+  };
   return (
     <div style={styles.footerContainer}>
       <div style={styles.topFooter}>
@@ -108,8 +108,8 @@ const Footer = () => {
             <span style={styles.footerNames}>Contact Us</span>
           </div>
           <div style={styles.supports}>
-            <span style={styles.footerTitle}>ABOUT SERVICEFY</span>
-            <span style={styles.footerNames}>News</span>
+            <span style={styles.footerTitle}>ABOUT US</span>
+            <span style={styles.footerNames}>Members</span>
             <span style={styles.footerNames}>Careers</span>
             <span style={styles.footerNames}>Investors</span>
             <span style={styles.footerNames}>Purpose </span>
