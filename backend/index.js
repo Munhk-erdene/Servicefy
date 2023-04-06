@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
-import router from "./router/service.js";
+import router from "./router/post.js";
 import routerUser from "./router/user.js";
 dotenv.config();
 const uri = process.env.MONGO_URI || "";
@@ -11,7 +11,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use("/Service", router);
+app.use("/Post", router);
 app.use("/User", routerUser);
 
 const connect = () => {

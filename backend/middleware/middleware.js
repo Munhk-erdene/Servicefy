@@ -4,7 +4,7 @@ export const checkTokenMiddleWare = (req, res, next) => {
   const token = req.body.token;
   jwt.verify(token, "secret", (err, result) => {
     if (err) {
-      console.log("aldaa");
+      console.log("aldaa token");
       res.status(400).send({
         data: err,
       });

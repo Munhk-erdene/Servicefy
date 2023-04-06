@@ -7,10 +7,23 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: [true, "нэвтрэх нэрээ оруулна уу"],
     },
+    mail:{
+      type: String,
+      required: [true, "mail оруулна уу"],
+    },
     password: {
       type: String,
       required: [true, "нууц үгээ оруулна уу"],
       minLength: [8, "хэтэрхий богино байна , 8 н оронтой байна"],
+    },
+    type:{
+      type:String,
+      enum:["User", "Baigulga"],
+      required: [true],
+    },
+    serviceType:{
+      type: String,
+      enum: ["food", "travel", "massage", "fix","relax"],
     },
     role: {
       type: String,
@@ -18,11 +31,8 @@ const UserSchema = new mongoose.Schema(
       default: "normal",
       required: [true, "please specify user role"],
     },
-    post: {
-      type: Array,
-    },
-    comment: {
-      type: Array,
+    locate:{
+      type:String,
     },
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }

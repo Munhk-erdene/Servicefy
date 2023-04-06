@@ -3,7 +3,10 @@ import mongoose, { Schema } from "mongoose";
 const ServiceSchema = new mongoose.Schema({
   name: {
     type: String,
-    require: [true, "Service"],
+  },
+  text: {
+    type: String,
+    
   },
   price: {
     type: String,
@@ -25,7 +28,10 @@ const ServiceSchema = new mongoose.Schema({
   rate:{
     type:String,
     enum:["1","2","3","4","5"]
-  }
+  },
+  comment: {
+    type: Array,
+  },
 });
 const Service = mongoose.model("service", ServiceSchema);
 export default Service;
