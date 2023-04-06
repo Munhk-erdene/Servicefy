@@ -2,11 +2,9 @@ import React from "react";
 import { instance } from "../App";
 import { useState } from "react";
 import { useRef } from "react";
-import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-import TextField from "@mui/material/TextField";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -19,6 +17,7 @@ function Register() {
       setSwitched(true);
     }
   };
+  const navigate = useNavigate();
   const username = useRef();
   const email = useRef();
   const password = useRef();
@@ -34,6 +33,7 @@ function Register() {
           type: "User",
         });
         toast("Succesfull");
+        navigate("/Login");
       } catch (error) {
         console.log("register aldaa user");
         toast(error.response.data.error);
@@ -50,6 +50,7 @@ function Register() {
             serviceType: serviceType.current.value,
           });
           toast("Succesfull");
+          navigate("/Login");
         } catch (error) {
           console.log("register aldaa baigulga");
           toast(error.response.data.error);
@@ -93,8 +94,10 @@ function Register() {
     switch: {
       fontSize: "20px",
       fontWeight: "600",
+      display: "flex",
+
       marginTop: switched ? "-23px" : "-50px",
-      width: "23.6vw",
+      width: "23vw",
     },
 
     sumbit: {

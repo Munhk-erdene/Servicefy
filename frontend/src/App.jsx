@@ -2,13 +2,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
+import Login from "./pages/Login";
 export const instance = axios.create({
   baseURL: "http://localhost:6969",
   headers: {
     "Content-type": "application/json; charset=UTF-8",
   },
 });
-import Login from "./pages/Login";
+
 function App() {
   return (
     <div className="App">
