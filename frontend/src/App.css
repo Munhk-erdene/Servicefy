@@ -1,3 +1,35 @@
 .Header{
-  background-color: beige;
+  width: 100vw;
+  height: 14vh;
+}
+.HeaderOne{
+  display: flex;
+  height: 6vh;
+  width: 100vw;
+  justify-content:space-around;
+  align-items: center;
+}
+.header{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.HeaderTwo{
+  background-color: rgb(228, 228, 228);
+  display: flex;
+  height: 6vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+}
+.HeaderTwo > div{
+  margin-right: 2vw;
+}
+.headerSign{
+  display: flex;
+  flex-direction: row;
+}
+.logo{
+  height: "60px";
+  width: "60px"; 
 }
