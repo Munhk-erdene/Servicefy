@@ -81,7 +81,7 @@ export const deleteUser = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const user = await User.findOne({
-      username: req.body.username,
+    mail: req.body.mail,
     });
     const token = jwt.sign({ ...user }, "secret", { expiresIn: "1d" });
     const boolean = await user.comparePassword(req.body.password);

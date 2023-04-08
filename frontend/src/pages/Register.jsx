@@ -45,7 +45,7 @@ function Register() {
             username: username.current.value,
             mail: email.current.value,
             password: password.current.value,
-            locale: locate.current.value,
+            locate: locate.current.value,
             type: "Baigulga",
             serviceType: serviceType.current.value,
           });
@@ -53,6 +53,7 @@ function Register() {
           navigate("/Login");
         } catch (error) {
           console.log("register aldaa baigulga");
+          console.log(error);
           toast(error.response.data.error);
         }
       }
