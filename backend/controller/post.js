@@ -1,7 +1,7 @@
-import Service from "../model/Service.js"
-export const getAllService = async (req, res) => {
+import Post from "../model/Post.js"
+export const getAllPost = async (req, res) => {
   try {
-    const data = await Service.find({});
+    const data = await Post.find({});
     res.status(200).send({
       success: true,
       data: data,
@@ -13,10 +13,17 @@ export const getAllService = async (req, res) => {
     });
   }
 };
-export const getService = async (req, res) => {
+export const comment = async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await Service.findById({ _id: id });
+    const user = await Post.findByIdAndUpdate(
+      { _id: id },
+      {
+        $push: {
+          post: req.body,
+        },
+      }
+    );
     res.status(200).send({
       success: true,
       data: user,
@@ -28,10 +35,25 @@ export const getService = async (req, res) => {
     });
   }
 };
-export const createService = async (req, res) => {
+export const getPost = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await Post.findById({ _id: id });
+    res.status(200).send({
+      success: true,
+      data: user,
+    });
+  } catch (error) {
+    res.status(400).send({
+      success: false,
+      data: error.message,
+    });
+  }
+};
+export const createPost = async (req, res) => {
   const { name, type, price, img, locate, rate } = req.body;
   try {
-    const data = await Service.create({
+    const data = await Post.create({
       name: name,
       type: type,
       rate:rate,
@@ -52,10 +74,10 @@ export const createService = async (req, res) => {
     });
   }
 };
-export const deleteService = async (req, res) => {
+export const deletePost = async (req, res) => {
   try {
     const { id } = req.params;
-    const data = await Service.findByIdAndRemove({ _id: id });
+    const data = await Post.findByIdAndRemove({ _id: id });
     res.status(200).send({
       success: true,
       data: data,
@@ -67,10 +89,10 @@ export const deleteService = async (req, res) => {
     });
   }
 };
-export const uptadeService = async (req, res) => {
+export const uptadePost = async (req, res) => {
   try {
     const { id } = req.params;
-    const data = await Service.findByIdAndUpdate({ _id: id }, req.body);
+    const data = await Post.findByIdAndUpdate({ _id: id }, req.body);
     res.status(200).send({
       success: true,
       data: data,

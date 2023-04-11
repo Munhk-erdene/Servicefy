@@ -81,7 +81,7 @@ export const deleteUser = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const user = await User.findOne({
-      username: req.body.username,
+    mail: req.body.mail,
     });
     const token = jwt.sign({ ...user }, "secret", { expiresIn: "1d" });
     const boolean = await user.comparePassword(req.body.password);
@@ -134,50 +134,8 @@ export const removeSags = async (req, res) => {
     });
   }
 };
-export const post = async (req, res) => {
-  const { id } = req.params;
-  try {
-    const user = await User.findByIdAndUpdate(
-      { _id: id },
-      {
-        $push: {
-          post: req.body,
-        },
-      }
-    );
-    res.status(200).send({
-      success: true,
-      data: user,
-    });
-  } catch (error) {
-    res.status(400).send({
-      success: false,
-      data: error.message,
-    });
-  }
-};
-export const comment = async (req, res) => {
-  const { id } = req.params;
-  try {
-    const user = await User.findByIdAndUpdate(
-      { _id: id },
-      {
-        $push: {
-          post: req.body,
-        },
-      }
-    );
-    res.status(200).send({
-      success: true,
-      data: user,
-    });
-  } catch (error) {
-    res.status(400).send({
-      success: false,
-      data: error.message,
-    });
-  }
-};
+
+
 export const removeWishlist = async (req, res) => {
   const { id } = req.params;
   console.log(req.body);
