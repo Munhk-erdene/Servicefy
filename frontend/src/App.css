@@ -1,35 +1,41 @@
+body{
+  margin: 0;
+}
 .Header{
   width: 100vw;
-  height: 14vh;
+  height: 8vh;
+  background-color:rgb(235, 235, 235);
 }
-.HeaderOne{
+.headerTop{
+  height: 3vh;
   display: flex;
-  height: 6vh;
-  width: 100vw;
-  justify-content:space-around;
+  background-color:rgb(235, 235, 235);
   align-items: center;
+  justify-content: space-between;
+  margin:0 10vw;
 }
-.header{
+.headerBottom{
+  height: 5vh;
+  border: 0.5px solid gray;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: white;
+  
 }
-.HeaderTwo{
-  background-color: rgb(228, 228, 228);
+.sign{
   display: flex;
-  height: 6vh;
-  width: 100vw;
+}
+.sign > div {
+  margin-left: 1vw;
+}
+.headerMain{
+  display: flex;
+}
+.headerMain > div {
+  margin-left: 2vw;
+}
+.headerImg{
   justify-content: center;
   align-items: center;
-}
-.HeaderTwo > div{
-  margin-right: 2vw;
-}
-.headerSign{
-  display: flex;
-  flex-direction: row;
-}
-.logo{
-  height: "60px";
-  width: "60px"; 
 }
