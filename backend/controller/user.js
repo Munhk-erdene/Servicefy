@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 export const getAllUser = async (req, res) => {
   try {
-    const user = await User.find({});
+    const user = await User.find({}).populate("post");
     res.status(200).send({
       success: true,
       data: user,
@@ -19,7 +19,7 @@ export const getAllUser = async (req, res) => {
 export const getUser = async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await User.findById(id);
+    const user = await User.findById(id).populate("post");
     res.status(200).send({
       success: true,
       data: user,
@@ -49,7 +49,7 @@ export const createUser = async (req, res) => {
 };
 export const createPost = async (req, res) => {
   try {
-    const user = await User.create(req.body).populate("post");;
+    const user = await User.create(req.body);
     res.status(200).send({
       success: true,
       data: user,
@@ -81,7 +81,7 @@ export const deleteUser = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const user = await User.findOne({
-      username: req.body.username,
+    mail: req.body.mail,
     });
     const token = jwt.sign({ ...user }, "secret", { expiresIn: "1d" });
     const boolean = await user.comparePassword(req.body.password);
@@ -134,50 +134,8 @@ export const removeSags = async (req, res) => {
     });
   }
 };
-export const post = async (req, res) => {
-  const { id } = req.params;
-  try {
-    const user = await User.findByIdAndUpdate(
-      { _id: id },
-      {
-        $push: {
-          post: req.body,
-        },
-      }
-    );
-    res.status(200).send({
-      success: true,
-      data: user,
-    });
-  } catch (error) {
-    res.status(400).send({
-      success: false,
-      data: error.message,
-    });
-  }
-};
-export const comment = async (req, res) => {
-  const { id } = req.params;
-  try {
-    const user = await User.findByIdAndUpdate(
-      { _id: id },
-      {
-        $push: {
-          post: req.body,
-        },
-      }
-    );
-    res.status(200).send({
-      success: true,
-      data: user,
-    });
-  } catch (error) {
-    res.status(400).send({
-      success: false,
-      data: error.message,
-    });
-  }
-};
+
+
 export const removeWishlist = async (req, res) => {
   const { id } = req.params;
   console.log(req.body);
