@@ -1,7 +1,7 @@
 import Post from "../model/Post.js"
 export const getAllPost = async (req, res) => {
   try {
-    const data = await Post.find({});
+    const data = await Post.find({});;
     res.status(200).send({
       success: true,
       data: data,
@@ -51,29 +51,34 @@ export const getPost = async (req, res) => {
   }
 };
 export const createPost = async (req, res) => {
-  const { name, type, price, img, locate, rate } = req.body;
+  const { name,text, price, img, locate, rate,date,title,user_id,token } = req.body;
   try {
-    const data = await Post.create({
+    const post = await Post.create({
       name: name,
-      type: type,
+      token:token,
+      user_id:user_id,
       rate:rate,
       price: price,
       img: img,
       locate:locate,
-      
+      title:title,
+      date:date,
+      text:text
     });
 
     res.status(200).send({
       success: true,
-      data: data,
+      data: post,
     });
   } catch (error) {
+    console.log(error)
     res.status(400).send({
       success: false,
       data: error.message,
     });
   }
 };
+
 export const deletePost = async (req, res) => {
   try {
     const { id } = req.params;

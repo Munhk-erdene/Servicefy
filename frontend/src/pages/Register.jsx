@@ -31,6 +31,7 @@ function Register() {
           mail: email.current.value,
           password: password.current.value,
           type: "User",
+          role: "user",
         });
         toast("Succesfull");
         navigate("/Login");
@@ -47,6 +48,7 @@ function Register() {
             password: password.current.value,
             locate: locate.current.value,
             type: "Baigulga",
+            role: "baigulga",
             serviceType: serviceType.current.value,
           });
           toast("Succesfull");
