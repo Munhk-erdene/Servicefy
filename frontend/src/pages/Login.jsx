@@ -13,9 +13,10 @@ function Login() {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      flexDirection: "row"
+      flexDirection: "row",
     },
     inputMain: {
+      width: "500px",
       display: "flex",
       flexDirection: "column",
       gap: "15px",
@@ -29,7 +30,7 @@ function Login() {
       flexDirection: "column",
     },
     NikeIconCn: {
-      width: "100%",
+      width: "500px",
       height: "40px",
       display: "flex",
       alignItems: "center",
@@ -45,7 +46,7 @@ function Login() {
       marginTop: "20px",
     },
     button: {
-      width: "35vw",
+      width: "500px",
       height: "40px",
       backgroundColor: "white",
       color: "black",
@@ -96,7 +97,6 @@ function Login() {
               id="outlined-basic"
               label="Нууц үг"
               variant="outlined"
-              style={{ width: "35vw" }}
             />
           </div>
           <div>
@@ -112,7 +112,6 @@ function Login() {
             </Link>
           </div>
 
- 
           <Button style={styles.button} onClick={LoginPost} variant="contained">
             Нэвтрэх
           </Button>
