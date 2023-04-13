@@ -1,12 +1,9 @@
-import React from "react";
-import "react-toastify/dist/ReactToastify.css";
-import { useRef } from "react";
-import { Link } from "react-router-dom";
-import TextField from "@mui/material/TextField";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { ToastContainer, toast } from "react-toastify";
 import { instance } from "../App";
-import { useNavigate } from "react-router-dom";
+import { useRef, React } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { TextField, Button } from "@mui/material";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Logo from "../components/Logo";
 function Login() {
   const styles = {
@@ -16,11 +13,12 @@ function Login() {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      flexDirection: "row",
+      flexDirection: "row"
     },
     inputMain: {
       display: "flex",
       flexDirection: "column",
+      gap: "15px",
     },
     BodyChild: {
       width: "500px",
@@ -46,24 +44,13 @@ function Login() {
       fontWeight: "400",
       marginTop: "20px",
     },
-    input: {
-      fontFamily: "Roboto,sans-serif",
-      fontSize: "20px",
-      fontWeight: "normal",
-      width: "500px",
-      height: "53px",
-      paddingLeft: "10px",
-
-      marginTop: "20px",
-    },
     button: {
-      width: "500px",
-      height: "50px",
+      width: "35vw",
+      height: "40px",
       backgroundColor: "white",
       color: "black",
       borderRadius: "5px",
-      fontSize: "20px",
-      fontWeight: "650",
+      fontWeight: "600",
       marginTop: "10px",
     },
   };
@@ -98,17 +85,18 @@ function Login() {
             </h1>
           </div>
           <div style={styles.inputMain}>
-            <input
-              style={styles.input}
-              type="mail"
-              placeholder="Бүртгэлтэй и-мэйл"
-              ref={email}
+            <TextField
+              inputRef={email}
+              id="outlined-basic"
+              label="Бүртгэлтэй и-мэйл"
+              variant="outlined"
             />
-            <input
-              style={styles.input}
-              type="password"
-              placeholder="Нууц үг"
-              ref={password}
+            <TextField
+              inputRef={password}
+              id="outlined-basic"
+              label="Нууц үг"
+              variant="outlined"
+              style={{ width: "35vw" }}
             />
           </div>
           <div>
@@ -124,9 +112,10 @@ function Login() {
             </Link>
           </div>
 
-          <button onClick={LoginPost} style={styles.button}>
+ 
+          <Button style={styles.button} onClick={LoginPost} variant="contained">
             Нэвтрэх
-          </button>
+          </Button>
         </div>
         <ToastContainer />
       </div>
