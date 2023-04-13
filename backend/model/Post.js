@@ -1,12 +1,11 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, {Schema } from "mongoose";
 
-const ServiceSchema = new mongoose.Schema({
+const PostSchema = new mongoose.Schema({
   name: {
     type: String,
   },
   text: {
     type: String,
-    
   },
   price: {
     type: String,
@@ -21,17 +20,24 @@ const ServiceSchema = new mongoose.Schema({
   img: {
     type: String,
   },
-  user_id: {
-    type: Schema.Types.ObjectId,
-    ref: "user",
-  },
+
   rate:{
     type:String,
-    enum:["1","2","3","4","5"]
   },
   comment: {
     type: Array,
   },
+  date:{
+    type:String,
+  },
+  title:{
+      type:String
+  },
+  user_id: {
+    type: Schema.Types.ObjectId,
+    ref: "user",
+    required:[true]
+  }
 });
-const Service = mongoose.model("service", ServiceSchema);
-export default Service;
+const Post = mongoose.model("Post", PostSchema);
+export default Post;

@@ -27,8 +27,8 @@ const UserSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ["normal", "admin"],
-      default: "normal",
+      enum: ["user", "admin","baigulga"],
+      default: "user",
       required: [true, "please specify user role"],
     },
     locate:{
@@ -38,8 +38,8 @@ const UserSchema = new mongoose.Schema(
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
 
-UserSchema.virtual("items", {
-  ref: "item",
+UserSchema.virtual("post", {
+  ref: "Post",
   localField: "_id",
   foreignField: "user_id",
 });
@@ -59,5 +59,5 @@ UserSchema.methods.comparePassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
-const User = mongoose.model("user", UserSchema);
+const User = mongoose.model("User", UserSchema);
 export default User;

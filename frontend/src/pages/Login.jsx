@@ -64,7 +64,8 @@ function Login() {
         password: password.current.value,
       });
       toast("Succesfull");
-      navigate("/");
+      console.log(res.data.data._id);
+      navigate(`/${res.data.data._id}`);
       window.localStorage.setItem("token", JSON.stringify(res.data.token));
       window.localStorage.setItem("user_id", JSON.stringify(res.data.data._id));
       window.localStorage.setItem("role", JSON.stringify(res.data.data.role));
@@ -110,6 +111,8 @@ function Login() {
               <strong>Шинээр хэрэглэгч үүсгэх</strong>
             </Link>
           </div>
+
+ 
           <Button style={styles.button} onClick={LoginPost} variant="contained">
             Нэвтрэх
           </Button>
