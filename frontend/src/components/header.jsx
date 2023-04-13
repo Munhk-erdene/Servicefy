@@ -1,34 +1,90 @@
+import "../App.css";
+import Post from "./Post";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 export const Header = () => {
+  const [createDisplay, setCreateDisplay] = useState({
+    display: "none",
+    isDisplay: false,
+  });
+  const createItem = () => {
+    if (createDisplay.isDisplay === false) {
+      setCreateDisplay({ display: "inline", isDisplay: true });
+    } else {
+      setCreateDisplay({ display: "none", isDisplay: false });
+    }
+  };
+  const style = {
+    dood: {
+      border: "0.5px solid black",
+      width: "100vw",
+      justifyContent: "center",
+      alignItems: "center",
+      display: "flex",
+      height: "4vh",
+    },
+    doodItem: {
+      marginLeft: "2vw",
+      fontSize: "22px",
+      fontFamily: "Times New Roman , Times,serif",
+    },
+
+    deedSign: {
+      textDecoration: "none",
+      color: "black",
+      fontWeight: "bolder",
+      fontSize: "16px",
+      marginRight: "20px",
+    },
+    logo: {
+      marginRight: "20px",
+      marginTop: "5px",
+    },
+    deed: {
+      width: "100vw",
+      justifyContent: "space-between",
+      alignItems: "center",
+      display: "flex",
+      height: "3vh",
+    },
+    helper: {
+      display: "flex",
+      justifyContent: "flex-end",
+    },
+    search: {
+      marginRight: "20px",
+    },
+  };
   return (
-    <div className="Header">
-      <div className="headerTop">
-        <div>Servicefy</div>
-        <div className="sign">
-          <div>Sign Up</div>
-          <div>Sign In</div>
+    <div>
+      <div style={style.deed}>
+        <div style={style.deedSign}>Logo</div>
+        <div style={style.helper}>
+          <Link style={{ textDecoration: "none", color: "black" }} to="/Login">
+            {" "}
+            <div style={style.deedSign}>SIGN IN</div>
+          </Link>
+          <Link
+            style={{ textDecoration: "none", color: "black" }}
+            to="/Register"
+          >
+            {" "}
+            <div style={style.deedSign}>SIGN UP</div>
+          </Link>
+          <button onClick={createItem}>on</button>
+          <input type="search" style={style.search} placeholder="Search" />
         </div>
       </div>
-      <div className="headerBottom">
-        <div className="headerImg">
-          <img
-            style={{ width: "60px", height: "53px" }}
-            src="https://scontent.fuln8-1.fna.fbcdn.net/v/t39.30808-6/340010607_560679526153438_7590188428266577079_n.jpg?stp=cp6_dst-jpg&_nc_cat=100&ccb=1-7&_nc_sid=730e14&_nc_ohc=wX-pJTsogaMAX-GRfOu&_nc_ht=scontent.fuln8-1.fna&oh=00_AfDdU1zntlmbff3ehFzY4Dku989A2pg1cjUyv9ZZpLFdSw&oe=64365922"
-            alt="logo"
-          />
-        </div>
-        <div className="headerMain">
-          <div>Home</div>
-          <div>About</div>
-          <div>Food</div>
-          <div>Travel</div>
-          <div>Repair</div>
-          <div>Massage</div>
-          <div>Relax</div>
-        </div>
-        <div className="headerInput">
-          <input type="search" name="" id="" placeholder="Search" />
-        </div>
+      <div style={style.dood}>
+        <div style={style.doodItem}>Home</div>
+        <div style={style.doodItem}>About us</div>
+        <div style={style.doodItem}>Repair</div>
+        <div style={style.doodItem}>Massage</div>
+        <div style={style.doodItem}>Food</div>
+        <div style={style.doodItem}>Relax</div>
+        <div style={style.doodItem}>Traveller</div>
       </div>
+      <Post value={createDisplay.display} />
     </div>
   );
 };
