@@ -1,12 +1,10 @@
-import React from "react";
+import { useState, useRef, React } from "react";
 import { instance } from "../App";
-import { useState } from "react";
-import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { Button, TextField } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import "bootstrap/dist/css/bootstrap.min.css";
+import Logo from "../components/Logo";
 
 function Register() {
   const [switched, setSwitched] = useState(false);
@@ -62,105 +60,112 @@ function Register() {
     }
   };
   const style = {
+    container: {
+      width: "100vw",
+      height: "100vh",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      flexDirection: "row",
+    },
     inputMain: {
+      height: switched ? "28vh" : "20vh",
+      width: "500px",
       display: "flex",
       flexDirection: "column",
-
-      marginTop: "1vh",
-      height: switched ? "28vh" : "20vh",
-    },
-    none: {
-      marginTop: "1vh",
-      height: switched ? "4vh" : "0px",
-      width: "23vw",
-      paddingLeft: "10px",
-      visibility: switched ? "" : "hidden",
-    },
-    input: {
-      marginTop: "1vh",
-      height: "4vh",
-      width: "23vw",
-      paddingLeft: "10px",
-    },
-    title: {
-      fontSize: "23px",
-      fontWeight: "700",
+      gap: "15px",
     },
     Main: {
       display: "flex",
-      width: "50vw",
-      border: "1px solid blue",
+      width: "500px",
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
     },
-    switch: {
-      fontSize: "20px",
-      fontWeight: "600",
-      display: "flex",
-
-      marginTop: switched ? "-23px" : "-50px",
-      width: "23vw",
+    none: {
+      height: switched ? "10vh" : "0px",
+      visibility: switched ? "" : "hidden",
     },
-
-    sumbit: {
+    h1: {
+      fontFamily: "Roboto,sans-serif",
+      fontSize: "28px",
+      fontWeight: "400",
+      marginTop: "20px",
+    },
+    switch: {
+      display: "flex",
+      justifyContent: "start",
+      cursor: "pointer",
       fontSize: "20px",
+      width: "500px",
+      marginTop: switched ? "130px" : "50px",
+    },
+    sumbit: {
+      display: "flex",
+      justifyContent: "center",
+      width: "100%",
+      fontSize: "17px",
       fontWeight: "600",
       marginTop: "1vh",
-      height: "3.5vh",
-      width: "23vw",
+      border: "1px solid "
     },
   };
   return (
-    <div>
+    <div style={style.container}>
       <div style={style.Main}>
-        <div style={style.title}>
+      <Logo />
+        <h1 style={style.h1}>
           Шинэ {switched ? "байгууллaгa бүртгүүлэх" : "хэрэглэгч болох"}
-        </div>
+        </h1>
         <div style={style.inputMain}>
-          <input
-            type="text"
-            placeholder={switched ? "Байгууллагын нэр" : "Хэрэглэгчийн нэр"}
-            ref={username}
+          <TextField
+            id="outlined-basic"
+            label={switched ? "Байгууллагын нэр" : "Хэрэглэгчийн нэр"}
+            variant="outlined"
             style={style.input}
+            inputRef={username}
           />
-          <input
-            type="text"
+          <TextField
+            id="outlined-basic"
+            label="Цахим шуудан"
+            variant="outlined"
             style={style.input}
-            placeholder="Цахим шуудан"
-            ref={email}
+            inputRef={email}
           />
-          <input
-            type="text"
+          <TextField
+            id="outlined-basic"
+            label="Нууц үг"
+            variant="outlined"
             style={style.input}
-            placeholder="Нууц үг"
-            ref={password}
+            inputRef={password}
           />
-          <input
-            type="text"
-            placeholder="Байршил"
+          <TextField
+            id="outlined-basic"
+            label="Байршил"
+            variant="outlined"
             style={style.none}
-            ref={locate}
+            inputRef={locate}
           />
-          <input
-            type="text"
-            placeholder="Үйлчилгээний төрөл"
+          <TextField
+            id="outlined-basic"
+            label="Үйлчилгээний төрөл"
+            variant="outlined"
             style={style.none}
-            ref={serviceType}
+            inputRef={serviceType}
           />
         </div>
-        <div>
+        <div style={style.switchAndButton}>
           <div style={style.switch} onClick={loginToSignup}>
             {switched ? "Хэрэглэгчээр бүртгүүлэх" : "Байгууллагаар бүртгүүлэх"}
           </div>
           <div>
             <Button
               style={style.sumbit}
-              onClick={registerButton}
               variant="outline-primary"
+              onClick={registerButton}
             >
               {switched ? "Байгууллaга бүртгүүлэх" : "Хэрэглэгч үүсгэх"}
-            </Button>{" "}
+            </Button>
           </div>
         </div>
       </div>
