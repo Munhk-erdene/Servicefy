@@ -53,6 +53,14 @@ function Login() {
       borderRadius: "5px",
       fontWeight: "600",
       marginTop: "10px",
+      border: "1px solid "
+    },
+    switch: {
+      display: "flex",
+      justifyContent: "start",
+      cursor: "pointer",
+      fontSize: "20px",
+      width: "500px",
     },
   };
   const navigate = useNavigate();
@@ -108,7 +116,7 @@ function Login() {
               }}
               to="/Register"
             >
-              <strong>Шинээр хэрэглэгч үүсгэх</strong>
+              <span style={styles.switch}>Шинээр хэрэглэгч үүсгэх</span>
             </Link>
           </div>
 
