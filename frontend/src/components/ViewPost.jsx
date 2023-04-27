@@ -17,7 +17,7 @@ const ViewPost = () => {
     <div>
       {data &&
         data.map((data) => {
-          return <PostMap value={data && data} />;
+          return <PostMap value={data && data} />
         })}
     </div>
   );

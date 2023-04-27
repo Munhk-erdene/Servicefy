@@ -5,7 +5,6 @@ import { Button, TextField } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Logo from "../components/Logo";
-
 function Register() {
   const [switched, setSwitched] = useState(false);
   const loginToSignup = () => {
@@ -107,13 +106,13 @@ function Register() {
       fontSize: "17px",
       fontWeight: "600",
       marginTop: "1vh",
-      border: "1px solid "
+      border: "1px solid ",
     },
   };
   return (
     <div style={style.container}>
       <div style={style.Main}>
-      <Logo />
+        <Logo />
         <h1 style={style.h1}>
           Шинэ {switched ? "байгууллaгa бүртгүүлэх" : "хэрэглэгч болох"}
         </h1>
