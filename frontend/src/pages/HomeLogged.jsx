@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import { Header } from "../components/Header";
 import Navbar from "../components/Navbar";
 import ViewPost from "../components/ViewPost";
-import UserFollow from "../components/UserFollow";
+
 const HomeLogged = () => {
   const [admin, setAdmin] = useState();
 
@@ -25,7 +25,6 @@ const HomeLogged = () => {
       {/* {admin ? <BodyAdmin /> : <Body />} */}
       <Navbar />
       <ViewPost />
-
       <Footer />
     </div>
   );
