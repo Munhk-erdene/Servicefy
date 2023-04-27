@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import HomeLogged from "./pages/HomeLogged";
 import PostPage from "./pages/PostPage";
+import PostJump from "./pages/PostJump";
 export const instance = axios.create({
   baseURL: "http://localhost:6969",
   headers: {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/:_id" element={<HomeLogged />} />
           <Route path="/Post" element={<PostPage />}></Route>
+          <Route path="/Post/:id" element={<PostJump />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

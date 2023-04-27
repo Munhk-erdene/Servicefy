@@ -20,6 +20,8 @@ export default function Post({ value }) {
       width: "400px",
     },
   };
+  // const postData = useRef({});
+  // postData.current = {...postData.current, rate:45}
   const rate = useRef();
   const text = useRef();
   const title = useRef();
@@ -51,49 +53,61 @@ export default function Post({ value }) {
     }
   };
   return (
-    <div style={style.main}>
-      <div style={style.inputMain}>
-        <input
-          style={style.input}
-          ref={title}
-          type="text"
-          placeholder="title"
-        />
-        <input
-          style={style.input}
-          ref={date}
-          type="datetime-local"
-          placeholder="date"
-        />
-        <input
-          style={style.input}
-          ref={locate}
-          type="text"
-          placeholder="locate"
-        />
-        <input style={style.input} ref={img} type="text" placeholder="image" />
-        <input
-          style={style.input}
-          ref={price}
-          type="number"
-          placeholder="price"
-        />
-        <input style={style.input} ref={text} type="text" placeholder="text" />
-        <input
-          style={style.input}
-          ref={name}
-          type="text"
-          placeholder="baigulga name"
-        />
-        <input
-          style={style.input}
-          ref={rate}
-          type="number"
-          placeholder="rate"
-        />
-        <button onClick={createPost}>post</button>
+    <div style={style.container}>
+      <div style={style.main}>
+        <div style={style.inputMain}>
+          <input
+            style={style.input}
+            ref={title}
+            type="text"
+            placeholder="title"
+          />
+          <input
+            style={style.input}
+            ref={date}
+            type="datetime-local"
+            placeholder="date"
+          />
+          <input
+            style={style.input}
+            ref={locate}
+            type="text"
+            placeholder="locate"
+          />
+          <input
+            style={style.input}
+            ref={img}
+            type="text"
+            placeholder="image"
+          />
+          <input
+            style={style.input}
+            ref={price}
+            type="number"
+            placeholder="price"
+          />
+          <input
+            style={style.input}
+            ref={text}
+            type="text"
+            placeholder="text"
+          />
+          <input
+            style={style.input}
+            ref={name}
+            type="text"
+            placeholder="baigulga name"
+          />
+          <input
+            style={style.input}
+            ref={rate}
+            type="number"
+            placeholder="rate"
+          />
+          <button onClick={createPost}>post</button>
+        </div>
+        <ToastContainer />
       </div>
-      <ToastContainer />
     </div>
   );
 }
