@@ -12,6 +12,7 @@ const ViewPost = () => {
   useEffect(() => {
     getData();
   }, [data]);
+
   return (
     <div>
       {data &&

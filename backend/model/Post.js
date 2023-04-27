@@ -12,7 +12,7 @@ const PostSchema = new mongoose.Schema({
   },
   type: {
     type: String,
-    enum: ["food", "travel", "massage", "fix","relax"],
+    
   },
   locate:{
     type:String,
@@ -20,12 +20,9 @@ const PostSchema = new mongoose.Schema({
   img: {
     type: String,
   },
-
+ 
   rate:{
     type:String,
-  },
-  comment: {
-    type: Array,
   },
   date:{
     type:String,
@@ -36,8 +33,16 @@ const PostSchema = new mongoose.Schema({
   user_id: {
     type: Schema.Types.ObjectId,
     ref: "user",
-    required:[true]
+  },
+  like:{
+    type:Number,
   }
+
+}, { toJSON: { virtuals: true }, toObject: { virtuals: true } });
+PostSchema.virtual("comment", {
+  ref: "Comment",
+  localField: "_id",
+  foreignField: "post_id",
 });
 const Post = mongoose.model("Post", PostSchema);
 export default Post;

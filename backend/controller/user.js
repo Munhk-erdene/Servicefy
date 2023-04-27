@@ -3,10 +3,10 @@ import jwt from "jsonwebtoken";
 
 export const getAllUser = async (req, res) => {
   try {
-    const user = await User.find({}).populate("post");
+    const data = await User.find({}).populate("post");
     res.status(200).send({
       success: true,
-      data: user,
+      data: data,
     });
   } catch (error) {
     res.status(400).send({
@@ -19,10 +19,10 @@ export const getAllUser = async (req, res) => {
 export const getUser = async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await User.findById(id).populate("post");
+    const data = await User.findById(id).populate("post");
     res.status(200).send({
       success: true,
-      data: user,
+      data: data,
     });
   } catch (error) {
     res.status(400).send({
@@ -159,7 +159,7 @@ export const removeWishlist = async (req, res) => {
     });
   }
 };
-export const order = async (req, res) => {
+export const comment = async (req, res) => {
   const { id } = req.params;
   try {
     const user = await User.findByIdAndUpdate({ _id: id }, req.body);

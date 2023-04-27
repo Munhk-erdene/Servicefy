@@ -4,6 +4,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import router from "./router/post.js";
 import routerUser from "./router/user.js";
+import routerComment from "./router/comment.js";
+
 dotenv.config();
 const uri = process.env.MONGO_URI || "";
 const port = process.env.PORT || 6969;
@@ -13,6 +15,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/Post", router);
 app.use("/User", routerUser);
+app.use("/Comment",routerComment)
 
 const connect = () => {
   mongoose.set("strictQuery", false);
