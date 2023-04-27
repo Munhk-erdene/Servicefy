@@ -1,7 +1,7 @@
-import Post from "../model/Post.js"
-export const getAllPost = async (req, res) => {
+import Comment from "../model/Comment.js"
+export const getAllComment = async (req, res) => {
   try {
-    const data = await Post.find({}).populate("comment");;
+    const data = await Comment.find({});;
     res.status(200).send({
       success: true,
       data: data,
@@ -14,10 +14,10 @@ export const getAllPost = async (req, res) => {
   }
 };
 
-export const getPost = async (req, res) => {
+export const getComment = async (req, res) => {
   const { id } = req.params;
   try {
-    const data = await Post.findById({ _id: id }).populate("comment");
+    const data = await Comment.findById({ _id: id });
     res.status(200).send({
       success: true,
       data: data,
@@ -29,25 +29,18 @@ export const getPost = async (req, res) => {
     });
   }
 };
-export const createPost = async (req, res) => {
-  const { name,text, price, img, locate, rate,date,title,user_id,token} = req.body;
+export const createComment = async (req, res) => {
+  const { post_id,text,user_id} = req.body;
   try {
-    const post = await Post.create({
-      name: name,
-      token:token,
+    const data = await Comment.create({
+      post_id:post_id,
       user_id:user_id,
-      rate:rate,
-      price: price,
-      img: img,
-      locate:locate,
-      title:title,
-      date:date,
       text:text
     });
 
     res.status(200).send({
       success: true,
-      data: post,
+      data: data,
     });
   } catch (error) {
     console.log(error)
@@ -58,10 +51,10 @@ export const createPost = async (req, res) => {
   }
 };
 
-export const deletePost = async (req, res) => {
+export const deleteComment = async (req, res) => {
   try {
     const { id } = req.params;
-    const data = await Post.findByIdAndRemove({ _id: id });
+    const data = await Comment.findByIdAndRemove({ _id: id });
     res.status(200).send({
       success: true,
       data: data,
@@ -77,7 +70,7 @@ export const deletePost = async (req, res) => {
 export const comment = async (req, res) => {
   const { id } = req.params;
   try {
-    const data = await Post.findByIdAndUpdate({ _id: id }, req.body);
+    const data = await Comment.findByIdAndUpdate({ _id: id }, req.body);
     res.status(200).send({
       success: true,
       data: data,
@@ -89,3 +82,19 @@ export const comment = async (req, res) => {
     });
   }
 };
+
+export const getCommentPost = async (req, res) => {
+    const { id } = req.params;
+    try {
+      const data = await Comment.findById({ post_id: id });
+      res.status(200).send({
+        success: true,
+        data: data,
+      });
+    } catch (error) {
+      res.status(400).send({
+        success: false,
+        data: error.message,
+      });
+    }
+  };
