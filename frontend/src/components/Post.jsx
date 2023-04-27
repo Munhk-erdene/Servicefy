@@ -52,7 +52,6 @@ export default function Post({ value }) {
   };
   return (
     <div style={style.main}>
-      <div>Cpzda</div>
       <div style={style.inputMain}>
         <input
           style={style.input}

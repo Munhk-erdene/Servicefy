@@ -5,56 +5,57 @@ import { TextField, Button } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Logo from "../components/Logo";
+
+const styles = {
+  Body: {
+    width: "100vw",
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+  },
+  inputMain: {
+    width: "500px",
+    display: "flex",
+    flexDirection: "column",
+    gap: "15px",
+  },
+  BodyChild: {
+    width: "500px",
+    height: "auto",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "start",
+    flexDirection: "column",
+  },
+  NikeIconCn: {
+    width: "500px",
+    height: "40px",
+    display: "flex",
+    alignItems: "center",
+  },
+  NikeIcon: {
+    width: "60px",
+    height: "60px",
+  },
+  h1: {
+    fontFamily: "Roboto,sans-serif",
+    fontSize: "28px",
+    fontWeight: "400",
+    marginTop: "20px",
+  },
+  button: {
+    width: "500px",
+    height: "40px",
+    backgroundColor: "white",
+    color: "black",
+    borderRadius: "5px",
+    fontWeight: "600",
+    marginTop: "10px",
+  },
+};
 function Login() {
-  const styles = {
-    Body: {
-      width: "100vw",
-      height: "100vh",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      flexDirection: "row",
-    },
-    inputMain: {
-      width: "500px",
-      display: "flex",
-      flexDirection: "column",
-      gap: "15px",
-    },
-    BodyChild: {
-      width: "500px",
-      height: "auto",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "start",
-      flexDirection: "column",
-    },
-    NikeIconCn: {
-      width: "500px",
-      height: "40px",
-      display: "flex",
-      alignItems: "center",
-    },
-    NikeIcon: {
-      width: "60px",
-      height: "60px",
-    },
-    h1: {
-      fontFamily: "Roboto,sans-serif",
-      fontSize: "28px",
-      fontWeight: "400",
-      marginTop: "20px",
-    },
-    button: {
-      width: "500px",
-      height: "40px",
-      backgroundColor: "white",
-      color: "black",
-      borderRadius: "5px",
-      fontWeight: "600",
-      marginTop: "10px",
-    },
-  };
   const navigate = useNavigate();
   const password = useRef();
   const email = useRef();
