@@ -11,8 +11,8 @@ const PostSchema = new mongoose.Schema({
     type: String,
   },
   type: {
-    type: String,
-    
+    type:String,
+    enum:["Food","Repair","Massage","Relax","Travel"]
   },
   locate:{
     type:String,
@@ -20,12 +20,12 @@ const PostSchema = new mongoose.Schema({
   img: {
     type: String,
   },
- 
   rate:{
     type:String,
+    enum:["0.5","1","1.5","2","2.5","3","3.5","4","4.5","5"]
   },
   date:{
-    type:String,
+    type: Date, default: Date,
   },
   title:{
       type:String

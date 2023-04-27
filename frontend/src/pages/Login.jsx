@@ -66,13 +66,11 @@ function Login() {
         password: password.current.value,
       });
       toast("Succesfull");
-      console.log(res.data.data._id);
       navigate(`/${res.data.data._id}`);
       window.localStorage.setItem("token", JSON.stringify(res.data.token));
       window.localStorage.setItem("user_id", JSON.stringify(res.data.data._id));
       window.localStorage.setItem("role", JSON.stringify(res.data.data.role));
     } catch (error) {
-      console.log(email.current.value);
       toast.error("Not found");
     }
   };
