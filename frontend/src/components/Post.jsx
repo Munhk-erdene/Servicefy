@@ -1,8 +1,19 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { instance } from "../App";
+import Select from "react-select";
+
 export default function Post({ value }) {
+  const [rate, SetRate] = useState("");
+  const [type, setType] = useState("");
+  const handleChange = (rate) => {
+    SetRate(rate.value);
+  };
+  const handleChanges = (type) => {
+    setType(type.value);
+  };
+
   const style = {
     main: {
       display: value,
@@ -22,23 +33,41 @@ export default function Post({ value }) {
   };
   // const postData = useRef({});
   // postData.current = {...postData.current, rate:45}
-  const rate = useRef();
+  const rates = [
+    { value: "0.5", label: "0.5" },
+    { value: "1", label: "1" },
+    { value: "1.5", label: "1.5" },
+    { value: "2", label: "2" },
+    { value: "2.5", label: "2.5" },
+    { value: "3", label: "3" },
+    { value: "3.5", label: "3.5" },
+    { value: "4", label: "4" },
+    { value: "1.5", label: "4.5" },
+    { value: "5", label: "5" },
+  ];
+  const types = [
+    { value: "Repair", label: "Repair" },
+    { value: "Relax", label: "Relax" },
+    { value: "Travel", label: "Travel" },
+    { value: "Food", label: "Food" },
+    { value: "Massage", label: "Massage" },
+  ];
+
   const text = useRef();
   const title = useRef();
   const locate = useRef();
-  const date = useRef();
   const name = useRef();
   const img = useRef();
   const price = useRef();
   const createPost = async () => {
     try {
       await instance.post("/Post", {
-        rate: rate.current.value,
+        rate: rate,
+        type: type,
         img: img.current.value,
         text: text.current.value,
         title: title.current.value,
         locate: locate.current.value,
-        date: date.current.value,
         name: name.current.value,
         price: price.current.value,
         token: JSON.parse(localStorage.getItem("token")),
@@ -52,6 +81,7 @@ export default function Post({ value }) {
       toast.error("Nevter");
     }
   };
+
   return (
     <div style={style.container}>
       <div style={style.main}>
@@ -62,12 +92,7 @@ export default function Post({ value }) {
             type="text"
             placeholder="title"
           />
-          <input
-            style={style.input}
-            ref={date}
-            type="datetime-local"
-            placeholder="date"
-          />
+
           <input
             style={style.input}
             ref={locate}
@@ -98,12 +123,20 @@ export default function Post({ value }) {
             type="text"
             placeholder="baigulga name"
           />
-          <input
-            style={style.input}
-            ref={rate}
-            type="number"
-            placeholder="rate"
-          />
+          <div style={{ width: "300px" }}>
+            <Select
+              onChange={handleChange}
+              placeholder="rate"
+              options={rates}
+            />
+          </div>
+          <div style={{ width: "300px" }}>
+            <Select
+              onChange={handleChanges}
+              placeholder="type"
+              options={types}
+            />
+          </div>
           <button onClick={createPost}>post</button>
         </div>
         <ToastContainer />

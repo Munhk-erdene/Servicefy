@@ -16,7 +16,6 @@ const PostMap = ({ value }) => {
   const getData = async () => {
     const res = await instance.get(`/User/${value.user_id}`);
     setData(res.data.data.username);
-    console.log(data);
   };
   useEffect(() => {
     getData();

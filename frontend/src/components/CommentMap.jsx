@@ -11,7 +11,6 @@ function CommentMap({ value }) {
   useEffect(() => {
     getData();
   }, [data]);
-  console.log(data);
 
   return (
     <div>

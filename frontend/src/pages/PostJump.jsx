@@ -22,7 +22,7 @@ function PostJump() {
       <div>
         {value &&
           value.map((value) => {
-            return <CommentMap value={value && value} />;
+            return <CommentMap value={value && value} key={value} />;
           })}
       </div>
     </div>
