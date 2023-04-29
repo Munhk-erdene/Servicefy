@@ -15,7 +15,7 @@ function CommentMap({ value }) {
   return (
     <div>
       <div>username:{data}</div>
-      <div>post:{value && value.text}</div>
+      <div>comment:{value && value.text}</div>
     </div>
   );
 }
