@@ -86,10 +86,16 @@ export const Header = () => {
         </div>
       </div>
       <div style={style.dood}>
-        {headers &&
-          headers.map((el) => {
-            return <div style={style.doodItem}>{el}</div>;
-          })}
+        <div style={style.doodItem}>Home</div>
+        <div style={style.doodItem}>About us</div>
+        <Link to="/Repair" style={{ textDecoration: "none", color: "black" }}>
+          {" "}
+          <div style={style.doodItem}>Repair</div>
+        </Link>
+        <div style={style.doodItem}>Relax</div>
+        <div style={style.doodItem}>Massage</div>
+        <div style={style.doodItem}>Travel</div>
+        <div style={style.doodItem}>Food</div>
       </div>
       <Post value={createDisplay.display} />
     </div>

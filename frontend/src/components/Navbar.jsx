@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const data = [
   {
@@ -29,6 +30,7 @@ const data = [
 ];
 const style = {
   container: {
+    marginTop: "2vh",
     display: "flex",
     justifyContent: "center",
     width: "100%",
@@ -47,8 +49,8 @@ const style = {
     cursor: "pointer",
   },
   image: {
-    width: "18vw",
-    height: "25vh",
+    width: "12vw",
+    height: "14vh",
     cursor: "pointer",
   },
 };
@@ -60,10 +62,16 @@ function Navbar() {
         {data &&
           data.map((el) => {
             return (
-              <div style={style.helper}>
-                <img style={style.image} src={el.image} alt="" />
-                <div style={style.text}>{el.text}</div>
-              </div>
+              <Link
+                to={`/${el.text}`}
+                style={{ textDecoration: "none", color: "black" }}
+              >
+                {" "}
+                <div style={style.helper}>
+                  <img style={style.image} src={el.image} alt="" />
+                  <div style={style.text}>{el.text}</div>
+                </div>
+              </Link>
             );
           })}
       </div>
