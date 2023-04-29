@@ -44,15 +44,6 @@ const style = {
     marginRight: "20px",
   },
 };
-const headers = [
-  "Home",
-  "About Us",
-  "Repair",
-  "Massage",
-  "Food",
-  "Relax",
-  "Traveller",
-];
 export const Header = () => {
   const [createDisplay, setCreateDisplay] = useState({
     display: "none",
