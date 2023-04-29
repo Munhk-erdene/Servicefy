@@ -4,7 +4,7 @@ import { instance } from "../App";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import CommentMap from "../components/CommentMap";
-import PostJumpUserData from "../components/PostJumpUserData";
+// import PostJumpUserData from "../components/PostJumpUserData";
 const styles = {
   container: {
     display: "flex",
@@ -39,8 +39,7 @@ function PostJump() {
     <>
       <div className="container" style={styles.container}>
         <div style={styles.post}>
-          <PostJumpUserData value={value && value} key={value} />
-          <div></div>
+          {/* <PostJumpUserData value={value && value} key={value} /> */}
           <div>
             {value &&
               value.map((value) => {
