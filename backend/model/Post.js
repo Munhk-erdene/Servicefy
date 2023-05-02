@@ -12,13 +12,14 @@ const PostSchema = new mongoose.Schema({
   },
   type: {
     type:String,
-    enum:["Food","Repair","Massage","Relax","Travel"]
+    enum:["Franchise","Repair","Massage","Relax","Travel","Health"]
   },
   locate:{
     type:String,
   },
   img: {
     type: String,
+    default:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png"
   },
   rate:{
     type:String,

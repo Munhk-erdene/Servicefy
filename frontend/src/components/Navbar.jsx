@@ -27,6 +27,11 @@ const data = [
       "https://images.everydayhealth.com/images/massage-therapy-guide-1440x810.jpg",
     text: "MASSAGE",
   },
+  {
+    image:
+      "https://preventioncentre.org.au/wp-content/uploads/2021/12/NPHS_900x600-900x600.png",
+    text: "HEALTH",
+  },
 ];
 const style = {
   container: {

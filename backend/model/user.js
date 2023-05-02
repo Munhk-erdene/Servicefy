@@ -23,7 +23,7 @@ const UserSchema = new mongoose.Schema(
     },
     serviceType:{
       type: String,
-      enum: ["food", "travel", "massage", "fix","relax"],
+      enum: ["Franchise", "Travel", "Massage", "Repair","Relax","Health"],
     },
     role: {
       type: String,

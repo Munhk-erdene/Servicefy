@@ -5,7 +5,7 @@ import { instance } from "../App";
 import { Link } from "react-router-dom";
 import JumpItems from "../components/JumpItems";
 import { Header } from "../components/Header";
-function Repair() {
+function Travel() {
   const [data, setData] = useState();
   const [filtered, setFiltered] = useState();
   const getData = async () => {
@@ -14,7 +14,7 @@ function Repair() {
     setFiltered(
       data &&
         data.filter((el) => {
-          if (el.type === "Repair") {
+          if (el.type === "Travel") {
             return el;
           }
         })
@@ -37,4 +37,4 @@ function Repair() {
   );
 }
 
-export default Repair;
+export default Travel;
