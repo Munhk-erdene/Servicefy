@@ -49,8 +49,9 @@ export default function Post({ value }) {
     { value: "Repair", label: "Repair" },
     { value: "Relax", label: "Relax" },
     { value: "Travel", label: "Travel" },
-    { value: "Food", label: "Food" },
+    { value: "Franchise", label: "Franchise" },
     { value: "Massage", label: "Massage" },
+    { value: "Health", label: "Health" },
   ];
 
   const text = useRef();

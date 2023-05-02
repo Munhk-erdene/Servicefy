@@ -58,6 +58,7 @@ function Register() {
       }
     }
   };
+
   const style = {
     container: {
       width: "100vw",
@@ -68,7 +69,7 @@ function Register() {
       flexDirection: "row",
     },
     inputMain: {
-      height: switched ? "28vh" : "20vh",
+      height: switched ? "330px" : "160px",
       width: "500px",
       display: "flex",
       flexDirection: "column",
@@ -82,7 +83,7 @@ function Register() {
       alignItems: "center",
     },
     none: {
-      height: switched ? "10vh" : "0px",
+      height: switched ? "4vh" : "0px",
       visibility: switched ? "" : "hidden",
     },
     h1: {
@@ -97,7 +98,7 @@ function Register() {
       cursor: "pointer",
       fontSize: "20px",
       width: "500px",
-      marginTop: switched ? "130px" : "50px",
+      marginTop: switched ? "20px" : "50px",
     },
     sumbit: {
       display: "flex",
@@ -109,6 +110,7 @@ function Register() {
       border: "1px solid ",
     },
   };
+
   return (
     <div style={style.container}>
       <div style={style.Main}>
@@ -147,7 +149,7 @@ function Register() {
           />
           <TextField
             id="outlined-basic"
-            label="Үйлчилгээний төрөл"
+            label="Үйлчилгээний төрөл Franchise | Travel | Massage | Relax | Repair"
             variant="outlined"
             style={style.none}
             inputRef={serviceType}

@@ -6,6 +6,9 @@ import Login from "./pages/Login";
 import HomeLogged from "./pages/HomeLogged";
 import PostJump from "./pages/PostJump";
 import Repair from "./pages/Repair";
+import Relax from "./pages/Relax";
+import Travel from "./pages/Travel";
+import Massage from "./pages/Massage";
 export const instance = axios.create({
   baseURL: "http://localhost:6969",
   headers: {
@@ -24,6 +27,9 @@ function App() {
           <Route path="/:_id" element={<HomeLogged />} />
           <Route path="/Post/:id" element={<PostJump />}></Route>
           <Route path="Repair" element={<Repair />}></Route>
+          <Route path="Massage" element={<Massage />}></Route>
+          <Route path="Relax" element={<Relax />}></Route>
+          <Route path="Travel" element={<Travel />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
