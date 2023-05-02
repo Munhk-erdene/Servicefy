@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.Header {
+  width: 100vw;
+  height: 8vh;
+  background-color: rgb(235, 235, 235);
+}
+
+.headerTop {
+  height: 3vh;
+  display: flex;
+  background-color: rgb(235, 235, 235);
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 10vw;
+}
+
+.headerBottom {
+  height: 5vh;
+  border: 0.5px solid gray;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+
+}
+
+.sign {
+  display: flex;
+}
+
+.sign>div {
+  margin-left: 1vw;
+}
+
+.headerMain {
+  display: flex;
+}
+
+.headerMain>div {
+  margin-left: 2vw;
+}
+
+.headerImg {
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1433838552652-f9a46b332c40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80");
+}
+
