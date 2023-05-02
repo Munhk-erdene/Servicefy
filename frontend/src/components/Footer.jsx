@@ -2,7 +2,7 @@ const Footer = () => {
   const styles = {
     footerContainer: {
       width: "100%",
-      backgroundColor: "#2f2f2f",
+      backgroundColor: "#202020",
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
@@ -26,7 +26,7 @@ const Footer = () => {
     },
     locationIcon: {
       width: "24px",
-      cursor: "pointer",
+      cursor: "pointer"
     },
     botFooter: {
       width: "80%",

@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import { Header } from "../components/Header";
 import Navbar from "../components/Navbar";
 import ViewPost from "../components/ViewPost";
+import Ad from "../components/Ad";
 
 const HomeLogged = () => {
   const [admin, setAdmin] = useState();
@@ -21,7 +22,7 @@ const HomeLogged = () => {
   return (
     <div className="homeLogged">
       <Header />
-
+      <Ad />
       {/* {admin ? <BodyAdmin /> : <Body />} */}
       <Navbar />
       <ViewPost />
