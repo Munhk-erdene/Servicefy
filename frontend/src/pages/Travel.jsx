@@ -3,7 +3,7 @@ import "../App.css";
 import { useEffect, useState } from "react";
 import { instance } from "../App";
 import JumpItems from "../components/JumpItems";
-import { Header } from "../components/header";
+import { Header } from "../components/Header";
 function Travel() {
   const [data, setData] = useState();
   const [filtered, setFiltered] = useState();
@@ -27,7 +27,6 @@ function Travel() {
   return (
     <div>
       <Header />
-
       {filtered &&
         filtered.map((el) => {
           return <JumpItems value={el} />;

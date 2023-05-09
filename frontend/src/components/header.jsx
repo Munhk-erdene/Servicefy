@@ -9,7 +9,7 @@ const style = {
     alignItems: "center",
     display: "flex",
     height: "6vh",
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
   },
   deedSign: {
     fontWeight: "bolder",
@@ -25,7 +25,7 @@ const style = {
     width: "100vw",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor:"#EDEDED",
+    backgroundColor: "#EDEDED",
     display: "flex",
     height: "4vh",
   },
