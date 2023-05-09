@@ -20,7 +20,7 @@ const PostMap = ({ value }) => {
   };
   useEffect(() => {
     getData();
-  }, [data]);
+  }, []);
   const profile = [
     {
       image:
@@ -51,7 +51,7 @@ const PostMap = ({ value }) => {
       justifyContent: "center",
     },
     helper: {
-      border: "1px solid #949494",
+      border: "0.5px solid #949494",
       width: "35vw",
       marginTop: "2vh",
       borderRadius: "10px",

@@ -34,7 +34,7 @@ function PostJump() {
   };
   useEffect(() => {
     getData();
-  }, [data]);
+  }, []);
   return (
     <>
       <div className="container" style={styles.container}>
