@@ -12,7 +12,6 @@ const UserMap = ({ value }) => {
   const style = {
     helper: {
       display: "flex",
-
       alignItems: "center",
     },
     img: {
