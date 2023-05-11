@@ -36,6 +36,8 @@ function App() {
           <Route path="Travel" element={<Travel />}></Route>
           <Route path="Health" element={<Health />}></Route>
           <Route path="Franchise" element={<Franchise />}></Route>
+          <Route path="AboutUs" element={<AboutUs />}></Route>
+          <Route path="Rate" element={<PostRate />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
