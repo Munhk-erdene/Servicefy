@@ -11,6 +11,13 @@ const CommentSchema = new mongoose.Schema({
  user_id:{
     type:String,
     required: [true, "Please login"],
+ },
+ date:{
+  type: Date, default: Date,
+},
+ rate:{
+  type:String,
+  enum:["0.5","1","1.5","2","2.5","3","3.5","4","4.5","5"]
  }
 
 });

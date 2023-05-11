@@ -9,7 +9,6 @@ const Footer = () => {
       alignItems: "center",
       padding: "50px 0",
       gap: "50px",
-      marginTop: "30px"
     },
     footerTitle: {
       color: "#ffffff",
@@ -26,7 +25,7 @@ const Footer = () => {
     },
     locationIcon: {
       width: "24px",
-      cursor: "pointer"
+      cursor: "pointer",
     },
     botFooter: {
       width: "80%",

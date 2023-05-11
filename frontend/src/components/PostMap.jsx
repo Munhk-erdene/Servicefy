@@ -84,7 +84,7 @@ const PostMap = ({ value }) => {
     },
     img: {
       width: "100%",
-      height: "35vh",
+      height: "40vh",
     },
     bodyHelper: {
       display: "flex",
@@ -147,14 +147,14 @@ const PostMap = ({ value }) => {
               readOnly
             />
           </div>
-          <hr style={{ marginBottom: "-0.1vh" }} />
+          <hr style={{ marginBottom: "-0.1vh", marginTop: "-0.1vh" }} />
           <Link
             style={{ textDecoration: "none", color: "black" }}
             to={`/Post/${value._id}`}
           >
             <img style={style.img} src={value.img} alt={value.img} />
           </Link>
-          <hr style={{ marginTop: "-0.3vh" }} />
+          <hr style={{ marginTop: "-0.00vh" }} />
         </div>
 
         <div style={style.footer}>
@@ -198,7 +198,7 @@ const PostMap = ({ value }) => {
               ref={text}
               onKeyDown={handleKeyDown}
               type="text"
-              placeholder="create a comment"
+              placeholder="create a comment "
             />
           </div>
         </div>

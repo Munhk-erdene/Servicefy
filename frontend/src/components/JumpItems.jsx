@@ -21,7 +21,7 @@ function JumpItems({ value }) {
   };
   useEffect(() => {
     getData();
-  }, [data]);
+  }, []);
   const handleKeyDown = async (event) => {
     if (event.key === "Enter") {
       try {

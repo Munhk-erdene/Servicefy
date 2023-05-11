@@ -2,6 +2,8 @@ import Logo from "./Logo";
 import Post from "./Post";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 const style = {
   dood: {
     width: "100vw",
@@ -9,7 +11,7 @@ const style = {
     alignItems: "center",
     display: "flex",
     height: "6vh",
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
   },
   deedSign: {
     fontWeight: "bolder",
@@ -25,7 +27,7 @@ const style = {
     width: "100vw",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor:"#EDEDED",
+    backgroundColor: "#EDEDED",
     display: "flex",
     height: "4vh",
   },
@@ -36,7 +38,7 @@ const style = {
   search: {
     marginRight: "20px",
     height: "27px",
-    width: "100px",
+    width: "200px",
   },
   button: {
     border: "none",
@@ -54,6 +56,17 @@ export const Header = () => {
       setCreateDisplay({ display: "none", isDisplay: false });
     }
   };
+  const navigate = useNavigate();
+  const searchItem = useRef();
+  const handleKeyDown = async (event) => {
+    if (event.key === "Enter") {
+      try {
+        navigate(`./${searchItem.current.value}`);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
   return (
     <div>
       <div style={style.deed}>
@@ -61,7 +74,6 @@ export const Header = () => {
           <Logo />
         </div>
         <div style={style.helper}>
-          <input type="search" style={style.search} placeholder="Search" />
           <Link style={{ textDecoration: "none", color: "black" }} to="/Login">
             <div style={style.deedSign}>SIGN IN</div>
           </Link>
@@ -74,19 +86,50 @@ export const Header = () => {
           <button style={style.button} onClick={createItem}>
             Post!
           </button>
+          <input
+            onKeyDown={handleKeyDown}
+            ref={searchItem}
+            type="search"
+            style={style.search}
+            placeholder="Search"
+          />
         </div>
       </div>
       <div style={style.dood}>
-        <div className="headerNames">Home</div>
+        <Link
+          to={`/${JSON.parse(localStorage.getItem("user_id"))}`}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <div className="headerNames">Home</div>
+        </Link>
         <div className="headerNames">About us</div>
+        <Link to="/Massage" style={{ textDecoration: "none", color: "black" }}>
+          {" "}
+          <div className="headerNames">Massage</div>
+        </Link>
+        <Link to="/Travel" style={{ textDecoration: "none", color: "black" }}>
+          {" "}
+          <div className="headerNames">Travel</div>
+        </Link>
+        <Link
+          to="/Franchise"
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          {" "}
+          <div className="headerNames">Franchise</div>
+        </Link>
         <Link to="/Repair" style={{ textDecoration: "none", color: "black" }}>
           {" "}
           <div className="headerNames">Repair</div>
         </Link>
-        <div className="headerNames">Relax</div>
-        <div className="headerNames">Massage</div>
-        <div className="headerNames">Travel</div>
-        <div className="headerNames">Food</div>
+        <Link to="/Relax" style={{ textDecoration: "none", color: "black" }}>
+          {" "}
+          <div className="headerNames">Relax</div>
+        </Link>
+        <Link to="/Health" style={{ textDecoration: "none", color: "black" }}>
+          {" "}
+          <div className="headerNames">Health</div>
+        </Link>
       </div>
       <Post value={createDisplay.display} />
     </div>

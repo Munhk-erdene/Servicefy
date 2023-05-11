@@ -58,19 +58,28 @@ body {
   font-size: 20px;
 }
 .headerNames {
-  font-family: 'Roboto Condensed', sans-serif !important;
+  font-family: "Roboto Condensed", sans-serif !important;
   font-size: 20px !important;
   font-weight: 1000 !important;
   margin-left: 2vw;
   cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 
 .navbarNames {
   display: flex;
-  font-family: 'Roboto Slab', serif !important;
+  font-family: "Roboto Slab", serif !important;
   flex-direction: column;
   font-weight: 100 !important;
   font-size: 20px !important;
   cursor: pointer;
 }
-
+.postJumpTitle {
+  font-size: 30px;
+  margin-top: 0.5vh;
+  font-family: sans-serif;
+}
+.postJumpAd {
+  font-family: "Times New Roman", Times, serif;
+}

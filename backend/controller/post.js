@@ -30,16 +30,15 @@ export const getPost = async (req, res) => {
   }
 };
 export const createPost = async (req, res) => {
-  const { name,text, price, img, locate, rate,date,title,user_id,token,type} = req.body;
+  const { name,text,  img, locate, rate,date,title,user_id,token,type} = req.body;
   try {
     const post = await Post.create({
       name: name,
       token:token,
       user_id:user_id,
       rate:rate,
-      price: price,
       img: img,
-      locate:locate,
+      locate:locate,  
       title:title,
       date:date,
       text:text,
