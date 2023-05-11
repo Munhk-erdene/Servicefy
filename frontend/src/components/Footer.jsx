@@ -9,24 +9,22 @@ const Footer = () => {
       alignItems: "center",
       padding: "50px 0",
       gap: "50px",
-      marginTop: "30px"
+      marginTop: "30px",
     },
     footerTitle: {
       color: "#ffffff",
       fontWeight: "bolder",
-      fontFamily: "Roboto Condensed",
       fontSize: "15px",
       cursor: "pointer",
     },
     footerNames: {
       color: "#ffffff96",
-      fontFamily: "Roboto Condensed",
       fontSize: "15px",
       cursor: "pointer",
     },
     locationIcon: {
       width: "24px",
-      cursor: "pointer"
+      cursor: "pointer",
     },
     botFooter: {
       width: "80%",
@@ -61,7 +59,7 @@ const Footer = () => {
             <span style={styles.footerTitle}>Ulaanbaatar</span>
           </div>
           <span style={styles.footerNames}>
-            © 2023 Servicefy, Inc. All Rights Reserved
+            Â© 2023 Servicefy, Inc. All Rights Reserved
           </span>
         </div>
         <div style={styles.botSideTwo}>
