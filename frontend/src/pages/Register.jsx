@@ -87,7 +87,6 @@ function Register() {
       visibility: switched ? "" : "hidden",
     },
     h1: {
-      fontFamily: "Roboto,sans-serif",
       fontSize: "28px",
       fontWeight: "400",
       marginTop: "20px",

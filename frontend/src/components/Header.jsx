@@ -2,6 +2,8 @@ import Logo from "./Logo";
 import Post from "./Post";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import HeaderButton from "./Ad/Headerbutton";
+
 const style = {
   dood: {
     width: "100vw",
@@ -9,34 +11,34 @@ const style = {
     alignItems: "center",
     display: "flex",
     height: "6vh",
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
   },
   deedSign: {
     fontWeight: "bolder",
     marginRight: "20px",
   },
   logo: {
-    marginRight: "20px",
-    marginTop: "5px",
-    width: "30px",
-    height: "30px",
+    height: "10px",
   },
   deed: {
     width: "100vw",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor:"#EDEDED",
+    backgroundColor: "#EDEDED",
     display: "flex",
     height: "4vh",
   },
   helper: {
     display: "flex",
     justifyContent: "flex-end",
+    padding: "30px 0px 30px 0px",
   },
   search: {
     marginRight: "20px",
     height: "27px",
-    width: "100px",
+    width: "150px",
+    borderRadius: "10px",
+    padding: "10px",
   },
   button: {
     border: "none",
@@ -63,13 +65,13 @@ export const Header = () => {
         <div style={style.helper}>
           <input type="search" style={style.search} placeholder="Search" />
           <Link style={{ textDecoration: "none", color: "black" }} to="/Login">
-            <div style={style.deedSign}>SIGN IN</div>
+            <HeaderButton>Sign In</HeaderButton>
           </Link>
           <Link
             style={{ textDecoration: "none", color: "black" }}
             to="/Register"
           >
-            <div style={style.deedSign}>SIGN UP</div>
+            <HeaderButton>Sign Up</HeaderButton>
           </Link>
           <button style={style.button} onClick={createItem}>
             Post!
@@ -77,7 +79,7 @@ export const Header = () => {
         </div>
       </div>
       <div style={style.dood}>
-        <div className="headerNames">Home</div>
+        <HeaderButton>Home</HeaderButton>
         <div className="headerNames">About us</div>
         <Link to="/Repair" style={{ textDecoration: "none", color: "black" }}>
           {" "}

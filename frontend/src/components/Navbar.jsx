@@ -33,37 +33,11 @@ const data = [
     text: "HEALTH",
   },
 ];
-const style = {
-  container: {
-    marginTop: "2vh",
-    display: "flex",
-    justifyContent: "center",
-    width: "100%",
-    gap: "30px",
-  },
-  helper: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-evenly",
-  },
-  text: {
-    display: "flex",
-    flexDirection: "column",
-    fontWeight: "bolder",
-    fontSize: "16px",
-    cursor: "pointer",
-  },
-  image: {
-    width: "12vw",
-    height: "14vh",
-    cursor: "pointer",
-  },
-};
 
 function Navbar() {
   return (
     <>
-      <div style={style.container}>
+      <div className="navbarContainer">
         {data &&
           data.map((el) => {
             return (
@@ -72,9 +46,9 @@ function Navbar() {
                 style={{ textDecoration: "none", color: "black" }}
               >
                 {" "}
-                <div style={style.helper}>
-                  <img style={style.image} src={el.image} alt="" />
-                  <div style={style.text}>{el.text}</div>
+                <div className="helper">
+                  <img className="image" src={el.image} alt="" />
+                  <div className="text">{el.text}</div>
                 </div>
               </Link>
             );
