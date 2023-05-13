@@ -2,8 +2,8 @@ import Logo from "./Logo";
 import Post from "./Post";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import HeaderButton from "./Ad/Headerbutton";
-
+import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 const style = {
   dood: {
     width: "100vw",
@@ -18,7 +18,10 @@ const style = {
     marginRight: "20px",
   },
   logo: {
-    height: "10px",
+    marginRight: "20px",
+    marginTop: "5px",
+    width: "30px",
+    height: "30px",
   },
   deed: {
     width: "100vw",
@@ -31,14 +34,11 @@ const style = {
   helper: {
     display: "flex",
     justifyContent: "flex-end",
-    padding: "30px 0px 30px 0px",
   },
   search: {
     marginRight: "20px",
     height: "27px",
-    width: "150px",
-    borderRadius: "10px",
-    padding: "10px",
+    width: "200px",
   },
   button: {
     border: "none",
@@ -56,6 +56,17 @@ export const Header = () => {
       setCreateDisplay({ display: "none", isDisplay: false });
     }
   };
+  const navigate = useNavigate();
+  const searchItem = useRef();
+  const handleKeyDown = async (event) => {
+    if (event.key === "Enter") {
+      try {
+        navigate(`./${searchItem.current.value}`);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
   return (
     <div>
       <div style={style.deed}>
@@ -63,32 +74,62 @@ export const Header = () => {
           <Logo />
         </div>
         <div style={style.helper}>
-          <input type="search" style={style.search} placeholder="Search" />
           <Link style={{ textDecoration: "none", color: "black" }} to="/Login">
-            <HeaderButton>Sign In</HeaderButton>
+            <div style={style.deedSign}>SIGN IN</div>
           </Link>
           <Link
             style={{ textDecoration: "none", color: "black" }}
             to="/Register"
           >
-            <HeaderButton>Sign Up</HeaderButton>
+            <div style={style.deedSign}>SIGN UP</div>
           </Link>
           <button style={style.button} onClick={createItem}>
             Post!
           </button>
+          <input
+            onKeyDown={handleKeyDown}
+            ref={searchItem}
+            type="search"
+            style={style.search}
+            placeholder="Search"
+          />
         </div>
       </div>
       <div style={style.dood}>
-        <HeaderButton>Home</HeaderButton>
+        <Link
+          to={`/${JSON.parse(localStorage.getItem("user_id"))}`}
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <div className="headerNames">Home</div>
+        </Link>
         <div className="headerNames">About us</div>
+        <Link to="/Massage" style={{ textDecoration: "none", color: "black" }}>
+          {" "}
+          <div className="headerNames">Massage</div>
+        </Link>
+        <Link to="/Travel" style={{ textDecoration: "none", color: "black" }}>
+          {" "}
+          <div className="headerNames">Travel</div>
+        </Link>
+        <Link
+          to="/Franchise"
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          {" "}
+          <div className="headerNames">Franchise</div>
+        </Link>
         <Link to="/Repair" style={{ textDecoration: "none", color: "black" }}>
           {" "}
           <div className="headerNames">Repair</div>
         </Link>
-        <div className="headerNames">Relax</div>
-        <div className="headerNames">Massage</div>
-        <div className="headerNames">Travel</div>
-        <div className="headerNames">Food</div>
+        <Link to="/Relax" style={{ textDecoration: "none", color: "black" }}>
+          {" "}
+          <div className="headerNames">Relax</div>
+        </Link>
+        <Link to="/Health" style={{ textDecoration: "none", color: "black" }}>
+          {" "}
+          <div className="headerNames">Health</div>
+        </Link>
       </div>
       <Post value={createDisplay.display} />
     </div>
