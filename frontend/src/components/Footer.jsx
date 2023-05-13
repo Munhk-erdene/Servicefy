@@ -70,7 +70,7 @@ const Footer = () => {
         </div>
         <div style={styles.botSideTwo}>
           {footerNames.map((name, i) => (
-            <span key={i} style={styles.footerNames}>{name}</span>
+            <span key={i} className={"text-white text-base cursor-pointer transition-all duration-300 font-semibold hover:text-gray-500"}>{name}</span>
           ))}
         </div>
       </div>

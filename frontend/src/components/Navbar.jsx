@@ -1,43 +1,10 @@
-import React from "react";
 import { Link } from "react-router-dom";
-
-const data = [
-  {
-    image:
-      "https://getquickspark.com.au/wp-content/uploads/2018/10/Types-of-Electrical-Repair.jpg",
-    text: "REPAIR",
-  },
-  {
-    image:
-      "https://static.wixstatic.com/media/5bfb6f_ea37f67cad544b348df9f3d0ff40f282.jpg/v1/fill/w_628,h_520,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/5bfb6f_ea37f67cad544b348df9f3d0ff40f282.jpg",
-    text: "FOOD",
-  },
-  {
-    image:
-      "https://static.wixstatic.com/media/5bfb6f_c667d0c9bd634b1aa2b29311795f3c51.jpg/v1/fill/w_630,h_520,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/5bfb6f_c667d0c9bd634b1aa2b29311795f3c51.jpg",
-    text: "RELAX",
-  },
-  {
-    image:
-      "https://static.wixstatic.com/media/5bfb6f_9f2519d5fc2d41f990a10dd92eb8658d.jpg/v1/fill/w_628,h_520,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/5bfb6f_9f2519d5fc2d41f990a10dd92eb8658d.jpg",
-    text: "TRAVEL",
-  },
-  {
-    image:
-      "https://images.everydayhealth.com/images/massage-therapy-guide-1440x810.jpg",
-    text: "MASSAGE",
-  },
-  {
-    image:
-      "https://preventioncentre.org.au/wp-content/uploads/2021/12/NPHS_900x600-900x600.png",
-    text: "HEALTH",
-  },
-];
+import { data } from "./navbar/data";
 
 function Navbar() {
   return (
     <>
-      <div className="navbarContainer">
+      <div className="flex justify-center w-full mt-6 gap-8">
         {data &&
           data.map((el) => {
             return (
@@ -45,10 +12,11 @@ function Navbar() {
                 to={`/${el.text}`}
                 style={{ textDecoration: "none", color: "black" }}
               >
-                {" "}
                 <div className="helper">
-                  <img className="image" src={el.image} alt="" />
-                  <div className="text">{el.text}</div>
+                  <div className="overflow-hidden w-fit h-fit bg-black">
+                    <img className="image cursor-pointer transition-all duration-300" src={el.image} alt="" />
+                  </div>
+                  <div className="flex flex-col font-bold text-base cursor-pointer">{el.text}</div>
                 </div>
               </Link>
             );

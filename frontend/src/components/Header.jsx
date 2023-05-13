@@ -1,3 +1,4 @@
+import { motion as m } from "framer-motion";
 import Logo from "./Logo";
 import Post from "./Post";
 import { useState } from "react";
@@ -7,14 +8,6 @@ import { useNavigate } from "react-router-dom";
 import { headerLinks } from "./header/headerLinks";
 
 const style = {
-  dood: {
-    width: "100vw",
-    justifyContent: "center",
-    alignItems: "center",
-    display: "flex",
-    height: "6vh",
-    backgroundColor: "#fff",
-  },
   deedSign: {
     fontWeight: "bolder",
     marginRight: "20px",
@@ -97,10 +90,10 @@ export const Header = () => {
           />
         </div>
       </div>
-      <div style={style.dood}>
+      <div className="w-screen justify-center items-center flex bg-white gap-4 h-[6vh]" style={style.dood}>
         {headerLinks.map((link) => (
-          <Link to={link.to} style={{ textDecoration: "none", color: "black" }}>
-            <div className="headerNames">{link.label}</div>
+          <Link to={link.to} className={"no-underline text-xl cursor-pointer px-2 py-1 rounded hover:bg-slate-500 transition-colors duration-300 text-black"} >
+            <m.div initial={{ x: "-100%" }} animate={{ x: 0 }} transition={{ duration: 0.5 }} className="hover:text-white">{link.label}</m.div>
           </Link>
         ))}
       </div>
