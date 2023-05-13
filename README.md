@@ -1,0 +1,1 @@
+# Barsaa bol gomo psda
