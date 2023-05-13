@@ -46,6 +46,8 @@ const Footer = () => {
       gap: "10px",
     },
   };
+
+  const footerNames = ['Contact Us', 'About Us', 'Careers', 'Sign Up For Email', 'Get Help'];
   return (
     <div style={styles.footerContainer}>
       <div style={styles.botFooter}>
@@ -63,11 +65,9 @@ const Footer = () => {
           </span>
         </div>
         <div style={styles.botSideTwo}>
-          <span style={styles.footerNames}>Contact Us</span>
-          <span style={styles.footerNames}>About Us</span>
-          <span style={styles.footerNames}>Careers</span>
-          <span style={styles.footerNames}>Sign Up For Email</span>
-          <span style={styles.footerNames}>Get Help</span>
+          {footerNames.map((name, i) => (
+            <span key={i} style={styles.footerNames}>{name}</span>
+          ))}
         </div>
       </div>
     </div>
