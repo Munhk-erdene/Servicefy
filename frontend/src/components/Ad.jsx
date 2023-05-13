@@ -25,7 +25,7 @@ function ExampleCarousel() {
           alt="KFC"
         />
         <Carousel.Caption>
-          <h3>KFC 3дахь өдөр болгон урамшуулал зарлана</h3>
+          <AdTitle>KFC 3дахь өдөр болгон урамшуулал зарлана</AdTitle>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -36,7 +36,7 @@ function ExampleCarousel() {
           alt="Third slide"
         />
         <Carousel.Caption>
-          <h3>Third slide label</h3>
+          <AdTitle>Third slide label</AdTitle>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
