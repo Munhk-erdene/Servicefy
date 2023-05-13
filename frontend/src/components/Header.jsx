@@ -1,18 +1,13 @@
+import { motion as m } from "framer-motion";
 import Logo from "./Logo";
 import Post from "./Post";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { headerLinks } from "./header/headerLinks";
+
 const style = {
-  dood: {
-    width: "100vw",
-    justifyContent: "center",
-    alignItems: "center",
-    display: "flex",
-    height: "6vh",
-    backgroundColor: "#fff",
-  },
   deedSign: {
     fontWeight: "bolder",
     marginRight: "20px",
@@ -95,41 +90,12 @@ export const Header = () => {
           />
         </div>
       </div>
-      <div style={style.dood}>
-        <Link
-          to={`/${JSON.parse(localStorage.getItem("user_id"))}`}
-          style={{ textDecoration: "none", color: "black" }}
-        >
-          <div className="headerNames">Home</div>
-        </Link>
-        <div className="headerNames">About us</div>
-        <Link to="/Massage" style={{ textDecoration: "none", color: "black" }}>
-          {" "}
-          <div className="headerNames">Massage</div>
-        </Link>
-        <Link to="/Travel" style={{ textDecoration: "none", color: "black" }}>
-          {" "}
-          <div className="headerNames">Travel</div>
-        </Link>
-        <Link
-          to="/Franchise"
-          style={{ textDecoration: "none", color: "black" }}
-        >
-          {" "}
-          <div className="headerNames">Franchise</div>
-        </Link>
-        <Link to="/Repair" style={{ textDecoration: "none", color: "black" }}>
-          {" "}
-          <div className="headerNames">Repair</div>
-        </Link>
-        <Link to="/Relax" style={{ textDecoration: "none", color: "black" }}>
-          {" "}
-          <div className="headerNames">Relax</div>
-        </Link>
-        <Link to="/Health" style={{ textDecoration: "none", color: "black" }}>
-          {" "}
-          <div className="headerNames">Health</div>
-        </Link>
+      <div className="w-screen justify-center items-center flex bg-white gap-4 h-[6vh]" style={style.dood}>
+        {headerLinks.map((link) => (
+          <Link to={link.to} className={"no-underline text-xl cursor-pointer px-2 py-1 rounded hover:bg-slate-500 transition-colors duration-300 text-black"} >
+            <m.div initial={{ x: "-100%" }} animate={{ x: 0 }} transition={{ duration: 0.5 }} className="hover:text-white">{link.label}</m.div>
+          </Link>
+        ))}
       </div>
       <Post value={createDisplay.display} />
     </div>

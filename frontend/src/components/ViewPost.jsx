@@ -1,25 +1,25 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { instance } from "../App";
 import PostMap from "./PostMap";
+
 const ViewPost = () => {
-  const [data, setData] = useState();
-  const getData = async () => {
-    const res = await instance.get(`/Post`);
-    setData(res.data.data);
-  };
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    getData();
-  }, [data]);
+    async function fetchData() {
+      const res = await instance.get("/Post");
+      setData(res.data.data);
+    }
+    fetchData();
+  }, []);
 
   return (
     <div>
-      {data &&
-        data.map((data) => {
-          return <PostMap value={data && data} />;
-        })}
+      {data.map((data) => (
+        <PostMap key={data.id} value={data} />
+      ))}
     </div>
   );
 };
+
 export default ViewPost;

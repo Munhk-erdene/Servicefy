@@ -62,18 +62,6 @@ body {
   font-size: 20px;
 }
 
-.headerNames {
-  font-size: 20px;
-  cursor: pointer;
-  padding: 0px 8px 0px 8px;
-  border-radius: 12px;
-}
-
-.headerNames:hover {
-  background: #c4c2c2;
-  transition: all 0.3s;
-}
-
 .navbarNames {
   display: flex;
   font-family: 'Roboto Slab', serif !important;
@@ -81,14 +69,6 @@ body {
   font-weight: 100 !important;
   font-size: 20px !important;
   cursor: pointer;
-}
-
-.navbarContainer {
-  margin-top: 2vh;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  gap: 30px;
 }
 
 .helper {
@@ -100,20 +80,18 @@ body {
 .image {
   width: 12vw;
   height: 14vh;
-  cursor: pointer;
 }
 
 .image:hover {
-  width: 13vw;
-  height: 15vh;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  scale: 1.1;
 }
 
-.text {
-  display: flex;
-  flex-direction: column;
-  font-weight: bolder;
-  font-size: 16px;
-  cursor: pointer;
+.navbarContainer {
+  margin-top: 2vh;
+
+}
+
+.navbarContainer {
+  margin-top: 2vh;
+
 }

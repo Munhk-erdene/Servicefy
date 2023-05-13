@@ -21,6 +21,10 @@ const Footer = () => {
       color: "#ffffff96",
       fontSize: "15px",
       cursor: "pointer",
+      transition: "color 0.3s ease",
+      '&:hover': {
+        color: "#000fff"
+      }
     },
     locationIcon: {
       width: "24px",
@@ -58,7 +62,7 @@ const Footer = () => {
               src="https://cdn-icons-png.flaticon.com/512/2838/2838912.png"
               alt=""
             />
-            <span style={styles.footerTitle}>Ulaanbaatar</span>
+            <span className="" style={styles.footerTitle}>Ulaanbaatar</span>
           </div>
           <span style={styles.footerNames}>
             Â© 2023 Servicefy, Inc. All Rights Reserved
@@ -66,7 +70,7 @@ const Footer = () => {
         </div>
         <div style={styles.botSideTwo}>
           {footerNames.map((name, i) => (
-            <span key={i} style={styles.footerNames}>{name}</span>
+            <span key={i} className={"text-white text-base cursor-pointer transition-all duration-300 font-semibold hover:text-gray-500"}>{name}</span>
           ))}
         </div>
       </div>
