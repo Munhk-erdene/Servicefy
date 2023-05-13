@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { headerLinks } from "./header/headerLinks";
+
 const style = {
   dood: {
     width: "100vw",
@@ -96,40 +98,11 @@ export const Header = () => {
         </div>
       </div>
       <div style={style.dood}>
-        <Link
-          to={`/${JSON.parse(localStorage.getItem("user_id"))}`}
-          style={{ textDecoration: "none", color: "black" }}
-        >
-          <div className="headerNames">Home</div>
-        </Link>
-        <div className="headerNames">About us</div>
-        <Link to="/Massage" style={{ textDecoration: "none", color: "black" }}>
-          {" "}
-          <div className="headerNames">Massage</div>
-        </Link>
-        <Link to="/Travel" style={{ textDecoration: "none", color: "black" }}>
-          {" "}
-          <div className="headerNames">Travel</div>
-        </Link>
-        <Link
-          to="/Franchise"
-          style={{ textDecoration: "none", color: "black" }}
-        >
-          {" "}
-          <div className="headerNames">Franchise</div>
-        </Link>
-        <Link to="/Repair" style={{ textDecoration: "none", color: "black" }}>
-          {" "}
-          <div className="headerNames">Repair</div>
-        </Link>
-        <Link to="/Relax" style={{ textDecoration: "none", color: "black" }}>
-          {" "}
-          <div className="headerNames">Relax</div>
-        </Link>
-        <Link to="/Health" style={{ textDecoration: "none", color: "black" }}>
-          {" "}
-          <div className="headerNames">Health</div>
-        </Link>
+        {headerLinks.map((link) => (
+          <Link to={link.to} style={{ textDecoration: "none", color: "black" }}>
+            <div className="headerNames">{link.label}</div>
+          </Link>
+        ))}
       </div>
       <Post value={createDisplay.display} />
     </div>

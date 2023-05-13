@@ -14,7 +14,7 @@ function ExampleCarousel() {
           alt="Nice to See You"
         />
         <Carousel.Caption>
-          <AdTitle>Cu card unshdag bolloo</AdTitle>
+          <AdTitle>CU карт уншдаг боллоо</AdTitle>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
