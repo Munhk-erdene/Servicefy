@@ -3,6 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { instance } from "../App";
 import Select from "react-select";
+import { Button } from "react-bootstrap";
 
 export default function Post({ value }) {
   const [rate, SetRate] = useState("");
@@ -15,20 +16,50 @@ export default function Post({ value }) {
   };
 
   const style = {
-    main: {
+    container: {
+      width: "100vw",
+      height: "100vh",
       display: value,
-      position: "absolute",
+      position: "fixed",
+      zIndex: "1",
+    },
+    main: {
+      display: "flex",
+      flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
     },
     inputMain: {
+      width: "40vw",
+      height: "30vw",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
       flexDirection: "column",
+      backgroundColor: "white",
+      border: "1px solid black",
+      borderRadius: "10px",
     },
     input: {
-      width: "400px",
+      width: "20vw",
+      height: "3vh",
+      marginTop: "0.2vh",
+      border: "0.5px solid gray",
+      borderRadius: "3px",
+      padding: "10px",
+    },
+    noneInput: {
+      height: "3vh",
+      width: "20vw",
+    },
+    button: {
+      marginTop: "0.2vh",
+      height: "3vh",
+      width: "20vw",
+    },
+    title: {
+      display: "flex",
+      alignItems: "flex-start",
     },
   };
   // const postData = useRef({});
@@ -59,18 +90,17 @@ export default function Post({ value }) {
   const locate = useRef();
   const name = useRef();
   const img = useRef();
-  const price = useRef();
+
   const createPost = async () => {
     try {
       await instance.post("/Post", {
         rate: rate,
         type: type,
-        img: img.current.value,
         text: text.current.value,
         title: title.current.value,
         locate: locate.current.value,
         name: name.current.value,
-        price: price.current.value,
+
         token: JSON.parse(localStorage.getItem("token")),
         user_id: JSON.parse(localStorage.getItem("user_id")),
       });
@@ -87,6 +117,7 @@ export default function Post({ value }) {
     <div style={style.container}>
       <div style={style.main}>
         <div style={style.inputMain}>
+          <div style={style.title}>Create a post!</div>
           <input
             style={style.input}
             ref={title}
@@ -108,12 +139,6 @@ export default function Post({ value }) {
           />
           <input
             style={style.input}
-            ref={price}
-            type="number"
-            placeholder="price"
-          />
-          <input
-            style={style.input}
             ref={text}
             type="text"
             placeholder="text"
@@ -124,21 +149,27 @@ export default function Post({ value }) {
             type="text"
             placeholder="baigulga name"
           />
-          <div style={{ width: "300px" }}>
+
+          <div style={style.noneInput}>
             <Select
               onChange={handleChange}
               placeholder="rate"
               options={rates}
             />
           </div>
-          <div style={{ width: "300px" }}>
+
+          <div style={style.noneInput}>
             <Select
+              style={style.noneInput}
               onChange={handleChanges}
               placeholder="type"
               options={types}
             />
           </div>
-          <button onClick={createPost}>post</button>
+
+          <Button style={style.button} onClick={createPost} variant="dark">
+            Post
+          </Button>
         </div>
         <ToastContainer />
       </div>
