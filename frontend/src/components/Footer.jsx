@@ -1,51 +1,51 @@
+const styles = {
+  footerContainer: {
+    width: "100%",
+    backgroundColor: "#202020",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "50px 0",
+    gap: "50px",
+    marginTop: "30px",
+  },
+  footerTitle: {
+    color: "#ffffff",
+    fontWeight: "bolder",
+    fontSize: "15px",
+    cursor: "pointer",
+  },
+  footerNames: {
+    color: "#ffffff96",
+    fontSize: "15px",
+    cursor: "pointer",
+  },
+  locationIcon: {
+    width: "24px",
+    cursor: "pointer",
+  },
+  botFooter: {
+    width: "80%",
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  botSideOne: {
+    display: "flex",
+    alignItems: "center",
+    gap: "30px",
+  },
+  botSideTwo: {
+    display: "flex",
+    gap: "30px",
+  },
+  locationContainer: {
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+  },
+};
 const Footer = () => {
-  const styles = {
-    footerContainer: {
-      width: "100%",
-      backgroundColor: "#202020",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
-      alignItems: "center",
-      padding: "50px 0",
-      gap: "50px",
-      marginTop: "30px",
-    },
-    footerTitle: {
-      color: "#ffffff",
-      fontWeight: "bolder",
-      fontSize: "15px",
-      cursor: "pointer",
-    },
-    footerNames: {
-      color: "#ffffff96",
-      fontSize: "15px",
-      cursor: "pointer",
-    },
-    locationIcon: {
-      width: "24px",
-      cursor: "pointer",
-    },
-    botFooter: {
-      width: "80%",
-      display: "flex",
-      justifyContent: "space-between",
-    },
-    botSideOne: {
-      display: "flex",
-      alignItems: "center",
-      gap: "30px",
-    },
-    botSideTwo: {
-      display: "flex",
-      gap: "30px",
-    },
-    locationContainer: {
-      display: "flex",
-      alignItems: "center",
-      gap: "10px",
-    },
-  };
   return (
     <div style={styles.footerContainer}>
       <div style={styles.botFooter}>

@@ -8,11 +8,9 @@ const ViewPost = () => {
     const res = await instance.get(`/Post`);
     setData(res.data.data);
   };
-
   useEffect(() => {
     getData();
   }, [data]);
-
   return (
     <div>
       {data &&

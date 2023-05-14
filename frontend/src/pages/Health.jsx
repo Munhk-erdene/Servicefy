@@ -19,15 +19,12 @@ function Health() {
         })
     );
   };
-
   useEffect(() => {
     getData();
   }, [data]);
-
   return (
     <div>
       <Header />
-
       {filtered &&
         filtered.map((el) => {
           return <JumpItems value={el} />;
@@ -35,5 +32,4 @@ function Health() {
     </div>
   );
 }
-
 export default Health;

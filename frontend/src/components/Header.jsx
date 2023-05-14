@@ -43,6 +43,10 @@ const style = {
   button: {
     border: "none",
   },
+  links: {
+    textDecoration: "none",
+    color: "black",
+  },
 };
 export const Header = () => {
   const [createDisplay, setCreateDisplay] = useState({
@@ -74,13 +78,10 @@ export const Header = () => {
           <Logo />
         </div>
         <div style={style.helper}>
-          <Link style={{ textDecoration: "none", color: "black" }} to="/Login">
+          <Link style={style.links} to="/Login">
             <div style={style.deedSign}>SIGN IN</div>
           </Link>
-          <Link
-            style={{ textDecoration: "none", color: "black" }}
-            to="/Register"
-          >
+          <Link style={style.links} to="/Register">
             <div style={style.deedSign}>SIGN UP</div>
           </Link>
           <button style={style.button} onClick={createItem}>
@@ -98,35 +99,34 @@ export const Header = () => {
       <div style={style.dood}>
         <Link
           to={`/${JSON.parse(localStorage.getItem("user_id"))}`}
-          style={{ textDecoration: "none", color: "black" }}
+          style={style.links}
         >
           <div className="headerNames">Home</div>
         </Link>
-        <div className="headerNames">About us</div>
-        <Link to="/Massage" style={{ textDecoration: "none", color: "black" }}>
+        <Link to={"/AboutUs"} style={style.links}>
+          <div className="headerNames">About us</div>
+        </Link>
+        <Link to="/Massage" style={style.links}>
           {" "}
           <div className="headerNames">Massage</div>
         </Link>
-        <Link to="/Travel" style={{ textDecoration: "none", color: "black" }}>
+        <Link to="/Travel" style={style.links}>
           {" "}
           <div className="headerNames">Travel</div>
         </Link>
-        <Link
-          to="/Franchise"
-          style={{ textDecoration: "none", color: "black" }}
-        >
+        <Link to="/Franchise" style={style.links}>
           {" "}
           <div className="headerNames">Franchise</div>
         </Link>
-        <Link to="/Repair" style={{ textDecoration: "none", color: "black" }}>
+        <Link to="/Repair" style={style.links}>
           {" "}
           <div className="headerNames">Repair</div>
         </Link>
-        <Link to="/Relax" style={{ textDecoration: "none", color: "black" }}>
+        <Link to="/Relax" style={style.links}>
           {" "}
           <div className="headerNames">Relax</div>
         </Link>
-        <Link to="/Health" style={{ textDecoration: "none", color: "black" }}>
+        <Link to="/Health" style={style.links}>
           {" "}
           <div className="headerNames">Health</div>
         </Link>

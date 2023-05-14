@@ -81,7 +81,6 @@ const styles = {
     width: "45vw",
     height: "70px",
     padding: "20px",
-
     backgroundColor: "#F1F1F1",
     borderBottomWidth: "0",
     borderLeftWidth: "0",
@@ -120,9 +119,11 @@ const styles = {
     justifyContent: "space-between",
   },
   CommentScroll: {
-    border: "1px solid red",
+    display: "flex",
     height: "70.5%",
     overflowX: "scroll",
+    gap: "10px",
+    flexDirection: "column",
   },
 };
 

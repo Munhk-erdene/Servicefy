@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
 import { useState } from "react";
 import { instance } from "../App";
 import { useParams } from "react-router-dom";
@@ -7,13 +6,11 @@ import SearchMap from "../components/SearchMap";
 import SearchMapUser from "../components/SearchMapUser";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-
 function Search() {
   const [alignment, setAlignment] = React.useState("");
   const handleChange = (event, newAlignment) => {
     setAlignment(newAlignment);
   };
-
   const [data, setData] = useState();
   const { search } = useParams();
   const [user, setUser] = useState();
@@ -27,7 +24,6 @@ function Search() {
     setUser(response.data.data);
     setData("");
   };
-
   return (
     <div>
       <div>Search</div>

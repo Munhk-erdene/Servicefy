@@ -1,5 +1,19 @@
 import React from "react";
 import { useState } from "react";
+const style = {
+  helper: {
+    display: "flex",
+    alignItems: "center",
+  },
+  img: {
+    width: "40px",
+    height: "40px",
+    borderRadius: "100px",
+  },
+  main: {
+    display: "Flex",
+  },
+};
 const UserMap = ({ value }) => {
   const [switched, setSwitched] = useState(false);
   const clickHandler = () => {
@@ -8,20 +22,6 @@ const UserMap = ({ value }) => {
     } else {
       setSwitched(true);
     }
-  };
-  const style = {
-    helper: {
-      display: "flex",
-      alignItems: "center",
-    },
-    img: {
-      width: "40px",
-      height: "40px",
-      borderRadius: "100px",
-    },
-    main: {
-      display: "Flex",
-    },
   };
   return (
     <div>

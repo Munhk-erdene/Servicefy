@@ -1,8 +1,34 @@
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { instance } from "../App";
+const styles = {
+  img: {
+    width: "13vh",
+    height: "13vh ",
+  },
+  ad: {
+    width: "100%",
+  },
+  map: {},
+  helper: {
+    marginTop: "10px",
+
+    display: "flex",
+    border: "0.5px solid gray",
+  },
+  title: {
+    width: "100%",
+  },
+  helperHelper: {
+    display: "flex",
+    flexDirection: "column",
+    padding: "10px",
+  },
+  logo: {
+    display: "flex",
+  },
+};
 function GetAllPost() {
   const [data, setData] = useState();
   const getData = async () => {
@@ -12,33 +38,7 @@ function GetAllPost() {
   useEffect(() => {
     getData();
   }, []);
-  const styles = {
-    img: {
-      width: "13vh",
-      height: "13vh ",
-    },
-    ad: {
-      width: "100%",
-    },
-    map: {},
-    helper: {
-      marginTop: "10px",
 
-      display: "flex",
-      border: "0.5px solid gray",
-    },
-    title: {
-      width: "100%",
-    },
-    helperHelper: {
-      display: "flex",
-      flexDirection: "column",
-      padding: "10px",
-    },
-    logo: {
-      display: "flex",
-    },
-  };
   return (
     <div style={styles.container}>
       <img

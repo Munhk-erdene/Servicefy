@@ -32,12 +32,10 @@ function ExampleCarousel() {
         <img
           className="d-block w-100"
           style={{ height: "90vh" }}
-          src="https://via.placeholder.com/800x400?text=Slide+3"
-          alt="Third slide"
+          src="https://static1.squarespace.com/static/580fbaac440243d8731ffc57/580fc80d46c3c44e7d4df181/618a8b86f13db249b077933e/1649190555234/Rickroll_WEBSITE.jpg?format=1500w"
+          alt=""
         />
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-        </Carousel.Caption>
+        <Carousel.Caption>{/* <h3>Third slide label</h3> */}</Carousel.Caption>
       </Carousel.Item>
     </Carousel>
   );

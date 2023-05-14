@@ -1,5 +1,15 @@
 import React from "react";
-
+const style = {
+  container: {
+    display: "flex",
+    width: "100vw",
+    height: "35%",
+  },
+  mapImg: {
+    width: "20%",
+    height: "100%",
+  },
+};
 function FooterImage() {
   const data = [
     {
@@ -24,17 +34,6 @@ function FooterImage() {
         "https://static.parastorage.com/services/instagram-cdn/1.691.0/assets/ig-templates-accounts/Editor/Traveller%20Blog/05.jpg",
     },
   ];
-  const style = {
-    container: {
-      display: "flex",
-      width: "100vw",
-      height: "35%",
-    },
-    mapImg: {
-      width: "20%",
-      height: "100%",
-    },
-  };
   return (
     <div style={style.container}>
       {data &&

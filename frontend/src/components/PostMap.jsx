@@ -174,7 +174,6 @@ const PostMap = ({ value }) => {
             </div>
             <div style={style.length}>{value.comment.length} comments</div>
           </div>
-
           <div style={style.none}>
             <hr style={{ marginBottom: "-0.1vh" }}></hr>
             <input

@@ -4,7 +4,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { instance } from "../App";
 import Select from "react-select";
 import { Button } from "react-bootstrap";
-
 export default function Post({ value }) {
   const [rate, SetRate] = useState("");
   const [type, setType] = useState("");
@@ -14,56 +13,6 @@ export default function Post({ value }) {
   const handleChanges = (type) => {
     setType(type.value);
   };
-
-  const style = {
-    container: {
-      width: "100vw",
-      height: "100vh",
-      display: value,
-      position: "fixed",
-      zIndex: "1",
-    },
-    main: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    inputMain: {
-      width: "40vw",
-      height: "30vw",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      flexDirection: "column",
-      backgroundColor: "white",
-      border: "1px solid black",
-      borderRadius: "10px",
-    },
-    input: {
-      width: "20vw",
-      height: "3vh",
-      marginTop: "0.2vh",
-      border: "0.5px solid gray",
-      borderRadius: "3px",
-      padding: "10px",
-    },
-    noneInput: {
-      height: "3vh",
-      width: "20vw",
-    },
-    button: {
-      marginTop: "0.2vh",
-      height: "3vh",
-      width: "20vw",
-    },
-    title: {
-      display: "flex",
-      alignItems: "flex-start",
-    },
-  };
-  // const postData = useRef({});
-  // postData.current = {...postData.current, rate:45}
   const rates = [
     { value: "0.5", label: "0.5" },
     { value: "1", label: "1" },
@@ -91,6 +40,54 @@ export default function Post({ value }) {
   const name = useRef();
   const img = useRef();
 
+  const style = {
+    container: {
+      width: "100vw",
+      height: "100vh",
+      display: value,
+      position: "fixed",
+      zIndex: "1",
+    },
+    main: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    inputMain: {
+      width: "40vw",
+      height: "30vw",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      flexDirection: "column",
+      backgroundColor: "white",
+      border: "1px solid black",
+      borderRadius: "10px",
+      gap: "1vh",
+    },
+    input: {
+      width: "20vw",
+      height: "5vh",
+      marginTop: "0.2vh",
+      border: "0.5px solid gray",
+      borderRadius: "3px",
+      padding: "10px",
+    },
+    noneInput: {
+      height: "3vh",
+      width: "17vw",
+    },
+    button: {
+      marginTop: "4vh",
+      height: "4.5vh",
+      width: "20vw",
+    },
+    title: {
+      display: "flex",
+      alignItems: "flex-start",
+    },
+  };
   const createPost = async () => {
     try {
       await instance.post("/Post", {
@@ -124,7 +121,6 @@ export default function Post({ value }) {
             type="text"
             placeholder="title"
           />
-
           <input
             style={style.input}
             ref={locate}
@@ -149,24 +145,23 @@ export default function Post({ value }) {
             type="text"
             placeholder="baigulga name"
           />
-
-          <div style={style.noneInput}>
-            <Select
-              onChange={handleChange}
-              placeholder="rate"
-              options={rates}
-            />
+          <div style={{ display: "flex", gap: "1rem" }}>
+            <div style={style.noneInput}>
+              <Select
+                onChange={handleChange}
+                placeholder="rate"
+                options={rates}
+              />
+            </div>
+            <div style={style.noneInput}>
+              <Select
+                style={style.noneInput}
+                onChange={handleChanges}
+                placeholder="type"
+                options={types}
+              />
+            </div>
           </div>
-
-          <div style={style.noneInput}>
-            <Select
-              style={style.noneInput}
-              onChange={handleChanges}
-              placeholder="type"
-              options={types}
-            />
-          </div>
-
           <Button style={style.button} onClick={createPost} variant="dark">
             Post
           </Button>
