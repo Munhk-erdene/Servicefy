@@ -34,10 +34,12 @@ const ProfileJump = () => {
   const { id } = useParams();
   const getData = async () => {
     const res = await instance.get(`/User/${id}`);
+    console.log(res);
     setData(res.data.data);
     setPost(res.data.data.post);
     setLength(res.data.data.post.length);
   };
+
   useEffect(() => {
     getData();
   }, []);

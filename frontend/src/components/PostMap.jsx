@@ -139,12 +139,18 @@ const PostMap = ({ value }) => {
             style={style.image}
             alt=""
           />
-       
+
           <div style={style.headerHelper}>
-            <div>
-              <div>{data}</div>
-              {moment(value.date).format("MMMM Do YYYY, h:mm:ss a")}
-            </div>
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              to={`/Profile/${jump}`}
+            >
+              {" "}
+              <div>
+                <div>{data}</div>
+                {moment(value.date).format("MMMM Do YYYY, h:mm:ss a")}
+              </div>
+            </Link>
             <Rating
               name="half-rating-read"
               defaultValue={value.rate}
