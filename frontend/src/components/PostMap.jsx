@@ -9,6 +9,7 @@ import { CiLocationOn } from "react-icons/ci";
 import moment from "moment";
 
 const PostMap = ({ value }) => {
+  const [jump, setJump] = useState();
   const [data, setData] = useState();
   const [switched, setSwitched] = useState(false);
   const ShowComment = () => {
@@ -21,7 +22,9 @@ const PostMap = ({ value }) => {
   const getData = async () => {
     const res = await instance.get(`/User/${value.user_id}`);
     setData(res.data.data.username);
+    setJump(res.data.data.id);
   };
+
   useEffect(() => {
     getData();
   }, [data]);
@@ -136,6 +139,7 @@ const PostMap = ({ value }) => {
             style={style.image}
             alt=""
           />
+       
           <div style={style.headerHelper}>
             <div>
               <div>{data}</div>
