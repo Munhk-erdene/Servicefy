@@ -43,7 +43,8 @@
     cursor: pointer;
     font-weight: 700;
 }
-.AboutSite{
+
+.AboutSite {
     display: flex;
     height: 25vh;
     width: 100vw;

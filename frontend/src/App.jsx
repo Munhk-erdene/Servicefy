@@ -12,6 +12,9 @@ import Massage from "./pages/Massage";
 import AboutUs from "./pages/AboutUs";
 import PostRate from "./pages/PostRate";
 import ProfileJump from "./pages/ProfileJump";
+import Search from "./pages/Search";
+import Franchise from "./pages/Franchise";
+import Health from "./pages/Health";
 export const instance = axios.create({
   baseURL: "http://localhost:6969",
   headers: {
@@ -28,14 +31,17 @@ function App() {
           <Route path="/Register" element={<Register />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/:_id" element={<HomeLogged />} />
+          <Route path="/:_id/:search" element={<Search />} />
           <Route path="/Post/:id" element={<PostJump />}></Route>
-          <Route path="Repair" element={<Repair />}></Route>
-          <Route path="Massage" element={<Massage />}></Route>
-          <Route path="Relax" element={<Relax />}></Route>
-          <Route path="Travel" element={<Travel />}></Route>
-          <Route path="AboutUs" element={<AboutUs />}></Route>
-          <Route path="Rate" element={<PostRate />}></Route>
           <Route path="/Profile/:id" element={<ProfileJump />}></Route>
+          <Route path="/Repair" element={<Repair />}></Route>
+          <Route path="/Massage" element={<Massage />}></Route>
+          <Route path="/Relax" element={<Relax />}></Route>
+          <Route path="/Travel" element={<Travel />}></Route>
+          <Route path="/AboutUs" element={<AboutUs />}></Route>
+          <Route path="/Rate" element={<PostRate />}></Route>
+          <Route path="/Franchise" element={<Franchise />}></Route>
+          <Route path="/Health" element={<Health />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

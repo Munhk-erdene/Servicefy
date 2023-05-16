@@ -1,16 +1,13 @@
+import { motion as m } from "framer-motion";
 import Logo from "./Logo";
 import Post from "./Post";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { headerLinks } from "./header/headerLinks";
+
 const style = {
-  dood: {
-    width: "100vw",
-    justifyContent: "center",
-    alignItems: "center",
-    display: "flex",
-    height: "6vh",
-    backgroundColor: "#fff"
-  },
   deedSign: {
     fontWeight: "bolder",
     marginRight: "20px",
@@ -25,7 +22,7 @@ const style = {
     width: "100vw",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor:"#EDEDED",
+    backgroundColor: "#EDEDED",
     display: "flex",
     height: "4vh",
   },
@@ -36,7 +33,7 @@ const style = {
   search: {
     marginRight: "20px",
     height: "27px",
-    width: "100px",
+    width: "200px",
   },
   button: {
     border: "none",
@@ -54,6 +51,17 @@ export const Header = () => {
       setCreateDisplay({ display: "none", isDisplay: false });
     }
   };
+  const navigate = useNavigate();
+  const searchItem = useRef();
+  const handleKeyDown = async (event) => {
+    if (event.key === "Enter") {
+      try {
+        navigate(`./${searchItem.current.value}`);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
   return (
     <div>
       <div style={style.deed}>
@@ -61,7 +69,6 @@ export const Header = () => {
           <Logo />
         </div>
         <div style={style.helper}>
-          <input type="search" style={style.search} placeholder="Search" />
           <Link style={{ textDecoration: "none", color: "black" }} to="/Login">
             <div style={style.deedSign}>SIGN IN</div>
           </Link>
@@ -74,19 +81,21 @@ export const Header = () => {
           <button style={style.button} onClick={createItem}>
             Post!
           </button>
+          <input
+            onKeyDown={handleKeyDown}
+            ref={searchItem}
+            type="search"
+            style={style.search}
+            placeholder="Search"
+          />
         </div>
       </div>
-      <div style={style.dood}>
-        <div className="headerNames">Home</div>
-        <div className="headerNames">About us</div>
-        <Link to="/Repair" style={{ textDecoration: "none", color: "black" }}>
-          {" "}
-          <div className="headerNames">Repair</div>
-        </Link>
-        <div className="headerNames">Relax</div>
-        <div className="headerNames">Massage</div>
-        <div className="headerNames">Travel</div>
-        <div className="headerNames">Food</div>
+      <div className="w-screen justify-center items-center flex bg-white gap-4 h-[6vh]" style={style.dood}>
+        {headerLinks.map((link) => (
+          <Link to={link.to} className={"no-underline text-xl cursor-pointer px-2 py-1 rounded hover:bg-slate-500 transition-colors duration-300 text-black"} >
+            <m.div initial={{ x: "-100%" }} animate={{ x: 0 }} transition={{ duration: 0.5 }} className="hover:text-white">{link.label}</m.div>
+          </Link>
+        ))}
       </div>
       <Post value={createDisplay.display} />
     </div>

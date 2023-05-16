@@ -85,7 +85,6 @@ const styles = {
   },
   texts: {
     fontSize: "18px",
-    fontFamily: "Raleway",
     marginBottom: "10px",
   },
   postTopRight: {
