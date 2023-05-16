@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import Rating from "@mui/material/Rating";
 import { Link } from "react-router-dom";
 const PostMap = ({ value }) => {
+  const [jump, setJump] = useState();
   const [data, setData] = useState();
   const [switched, setSwitched] = useState(false);
   const ShowComment = () => {
@@ -17,7 +18,9 @@ const PostMap = ({ value }) => {
   const getData = async () => {
     const res = await instance.get(`/User/${value.user_id}`);
     setData(res.data.data.username);
+    setJump(res.data.data.id);
   };
+
   useEffect(() => {
     getData();
   }, [data]);
@@ -132,10 +135,15 @@ const PostMap = ({ value }) => {
             style={style.image}
             alt=""
           />
-          <div style={style.headerHelper}>
-            <div>{data}</div>
-            <div>{value.date}</div>
-          </div>
+          <Link
+            style={{ color: "black", textDecoration: "none" }}
+            to={`/Profile/${jump}`}
+          >
+            <div style={style.headerHelper}>
+              <div>{data}</div>
+              <div>{value.date}</div>
+            </div>
+          </Link>
         </div>
         <div style={style.body}>
           <div style={style.bodyHelper}>

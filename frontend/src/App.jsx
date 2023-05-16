@@ -11,6 +11,7 @@ import Travel from "./pages/Travel";
 import Massage from "./pages/Massage";
 import AboutUs from "./pages/AboutUs";
 import PostRate from "./pages/PostRate";
+import ProfileJump from "./pages/ProfileJump";
 export const instance = axios.create({
   baseURL: "http://localhost:6969",
   headers: {
@@ -32,8 +33,9 @@ function App() {
           <Route path="Massage" element={<Massage />}></Route>
           <Route path="Relax" element={<Relax />}></Route>
           <Route path="Travel" element={<Travel />}></Route>
-          <Route path="AboutUs" element={< AboutUs/>}></Route>
-          <Route path="Rate" element={<PostRate/>}></Route>
+          <Route path="AboutUs" element={<AboutUs />}></Route>
+          <Route path="Rate" element={<PostRate />}></Route>
+          <Route path="/Profile/:id" element={<ProfileJump />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
