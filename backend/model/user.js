@@ -3,6 +3,10 @@ import bcrypt from "bcrypt";
 
 const UserSchema = new mongoose.Schema(
   {
+    image:{
+      type: String,
+      default:"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+    },
     username: {
       type: String,
       required: [true, "нэвтрэх нэрээ оруулна уу"],
@@ -10,6 +14,7 @@ const UserSchema = new mongoose.Schema(
     mail:{
       type: String,
       required: [true, "mail оруулна уу"],
+      mixLength: [20, "too long , 20 н оронтой байна"],
     },
     password: {
       type: String,
