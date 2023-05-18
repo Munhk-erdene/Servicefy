@@ -71,6 +71,13 @@ body {
   cursor: pointer;
 }
 
+
+.hover{
+  transition: transform 0.5s;
+}
+.hover:hover {
+  transform: scale(1.1); 
+}
 .helper {
   display: flex;
   flex-direction: column;

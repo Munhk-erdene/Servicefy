@@ -9,6 +9,7 @@ import { CiLocationOn } from "react-icons/ci";
 import moment from "moment";
 
 const PostMap = ({ value }) => {
+  const [jump, setJump] = useState();
   const [data, setData] = useState();
   const [image, setImage] = useState();
   const [switched, setSwitched] = useState(false);
@@ -23,7 +24,9 @@ const PostMap = ({ value }) => {
     const res = await instance.get(`/User/${value.user_id}`);
     setData(res.data.data.username);
     setImage(res.data.data.image);
+    setJump(res.data.data.id);
   };
+
   useEffect(() => {
     getData();
   }, [data]);
@@ -135,11 +138,18 @@ const PostMap = ({ value }) => {
       <div style={style.helper}>
         <div style={style.header}>
           <img src={image} style={style.image} alt={image} />
+
           <div style={style.headerHelper}>
-            <div>
-              <div>{data}</div>
-              {moment(value.date).format("MMMM Do YYYY, h:mm:ss a")}
-            </div>
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              to={`/Profile/${jump}`}
+            >
+              {" "}
+              <div>
+                <div>{data}</div>
+                {moment(value.date).format("MMMM Do YYYY, h:mm:ss a")}
+              </div>
+            </Link>
             <Rating
               name="half-rating-read"
               defaultValue={value.rate}
