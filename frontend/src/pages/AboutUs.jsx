@@ -5,7 +5,7 @@ function AboutUs() {
     {
       img: "https://avatarfiles.alphacoders.com/276/276238.png",
       name: "Мөнх-Эрдэнэ",
-      discord: "!Zxin #2162",
+      discord: "99179429",
     },
     {
       img: "https://e1.pxfuel.com/desktop-wallpaper/397/765/desktop-wallpaper-nakano-itsuki-gotoubun-nakano-itsuki-anime.jpg",

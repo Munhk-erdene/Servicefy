@@ -93,23 +93,35 @@ export default function Post({ value }) {
 
   const createPost = async () => {
     try {
-      await instance.post("/Post", {
-        rate: rate,
-        type: type,
-        text: text.current.value,
-        title: title.current.value,
-        locate: locate.current.value,
-        name: name.current.value,
-
-        token: JSON.parse(localStorage.getItem("token")),
-        user_id: JSON.parse(localStorage.getItem("user_id")),
-      });
+      if (img.current.value === "") {
+        await instance.post("/Post", {
+          rate: rate,
+          type: type,
+          text: text.current.value,
+          title: title.current.value,
+          locate: locate.current.value,
+          name: name.current.value,
+          token: JSON.parse(localStorage.getItem("token")),
+          user_id: JSON.parse(localStorage.getItem("user_id")),
+        });
+      } else {
+        await instance.post("/Post", {
+          rate: rate,
+          type: type,
+          text: text.current.value,
+          title: title.current.value,
+          locate: locate.current.value,
+          name: name.current.value,
+          img: img.current.value,
+          token: JSON.parse(localStorage.getItem("token")),
+          user_id: JSON.parse(localStorage.getItem("user_id")),
+        });
+      }
       toast("Succesfull");
       console.log();
     } catch (error) {
-      console.log("aldaa post user");
       console.log(error);
-      toast.error("Nevter");
+      toast.error(error.response.data.data);
     }
   };
 

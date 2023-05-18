@@ -32,8 +32,9 @@ const style = {
   },
   search: {
     marginRight: "20px",
-    height: "27px",
+    height: "30px",
     width: "200px",
+    paddingLeft: "20px",
   },
   button: {
     border: "none",
@@ -56,7 +57,12 @@ export const Header = () => {
   const handleKeyDown = async (event) => {
     if (event.key === "Enter") {
       try {
-        navigate(`./${searchItem.current.value}`);
+        navigate(
+          `/${JSON.parse(localStorage.getItem("user_id"))}/${
+            searchItem.current.value
+          }`
+        );
+        searchItem.current.value = "";
       } catch (error) {
         console.log(error);
       }
@@ -78,9 +84,14 @@ export const Header = () => {
           >
             <div style={style.deedSign}>SIGN UP</div>
           </Link>
-          <button style={style.button} onClick={createItem}>
-            Post!
-          </button>
+          <Link style={{ textDecoration: "none", color: "black" }} to="/Rate">
+            <div style={style.deedSign}>TOP</div>
+          </Link>
+
+          <div style={style.deedSign} onClick={createItem}>
+            CREATE A POST
+          </div>
+
           <input
             onKeyDown={handleKeyDown}
             ref={searchItem}
@@ -90,10 +101,25 @@ export const Header = () => {
           />
         </div>
       </div>
-      <div className="w-screen justify-center items-center flex bg-white gap-4 h-[6vh]" style={style.dood}>
+      <div
+        className="w-screen justify-center items-center flex bg-white gap-4 h-[6vh]"
+        style={style.dood}
+      >
         {headerLinks.map((link) => (
-          <Link to={link.to} className={"no-underline text-xl cursor-pointer px-2 py-1 rounded hover:bg-slate-500 transition-colors duration-300 text-black"} >
-            <m.div initial={{ x: "-100%" }} animate={{ x: 0 }} transition={{ duration: 0.5 }} className="hover:text-white">{link.label}</m.div>
+          <Link
+            to={link.to}
+            className={
+              "no-underline text-xl cursor-pointer px-2 py-1 rounded hover:bg-slate-500 transition-colors duration-300 text-black"
+            }
+          >
+            <m.div
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="hover:text-white"
+            >
+              {link.label}
+            </m.div>
           </Link>
         ))}
       </div>

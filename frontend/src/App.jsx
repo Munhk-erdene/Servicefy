@@ -41,6 +41,7 @@ function App() {
           <Route path="/Rate" element={<PostRate />}></Route>
           <Route path="/Franchise" element={<Franchise />}></Route>
           <Route path="/Health" element={<Health />}></Route>
+          <Route path="/About" element={<AboutUs />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

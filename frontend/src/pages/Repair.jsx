@@ -2,9 +2,9 @@ import React from "react";
 import "../App.css";
 import { useEffect, useState } from "react";
 import { instance } from "../App";
-import { Link } from "react-router-dom";
 import JumpItems from "../components/JumpItems";
 import { Header } from "../components/Header";
+import Footer from "../components/Footer";
 function Repair() {
   const [data, setData] = useState();
   const [filtered, setFiltered] = useState();
@@ -26,13 +26,26 @@ function Repair() {
   }, [data]);
 
   return (
-    <div>
-      <Header />
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        width: "100vw",
+        height: "100vh",
+        flexDirection: "column",
+      }}
+    >
+      <div>
+        <div style={{ border: "0.5px solid black" }}>
+          <Header />
+        </div>
+        {filtered &&
+          filtered.map((el) => {
+            return <JumpItems value={el} />;
+          })}
+      </div>
 
-      {filtered &&
-        filtered.map((el) => {
-          return <JumpItems value={el} />;
-        })}
+      <Footer />
     </div>
   );
 }
