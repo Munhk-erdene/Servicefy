@@ -7,6 +7,9 @@ import SearchMap from "../components/SearchMap";
 import SearchMapUser from "../components/SearchMapUser";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import Footer from "../components/Footer";
+import { Header } from "../components/Header";
+import HeaderInput from "../components/HeaderInput";
 
 function Search() {
   const [alignment, setAlignment] = React.useState("");
@@ -14,6 +17,29 @@ function Search() {
     setAlignment(newAlignment);
   };
 
+  const styles = {
+    main: {
+      width: "100vw",
+      height: "100vh",
+      display: "flex",
+      justifyContent: "space-between",
+      flexDirection: "column",
+    },
+    container: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    },
+    toggleButton: {
+      width: "30vh",
+      fontSize: "20px",
+      marginTop: "1vh",
+    },
+    title: {
+      fontSize: "40px",
+      fontWeight: "500",
+    },
+  };
   const [data, setData] = useState();
   const { search } = useParams();
   const [user, setUser] = useState();
@@ -29,40 +55,53 @@ function Search() {
   };
 
   return (
-    <div>
-      <div>Search</div>
-      <ToggleButtonGroup
-        color="primary"
-        value={alignment}
-        exclusive
-        onChange={handleChange}
-        aria-label="Platform"
-      >
-        <ToggleButton onClick={getUser} value="user">
-          User
-        </ToggleButton>
-        <ToggleButton onClick={getData} value="post">
-          Post
-        </ToggleButton>
-      </ToggleButtonGroup>
-      <div>
-        {data &&
-          data.map((data) => {
-            if (data && data.title.includes(search)) {
-              return <SearchMap value={data} />;
-            } else {
-            }
-          })}
+    <div style={styles.main}>
+      <div style={styles.container}>
+        <HeaderInput />
+        <div style={styles.title}>You searched "{search}"</div>
+        <ToggleButtonGroup
+          color="primary"
+          value={alignment}
+          exclusive
+          onChange={handleChange}
+          aria-label="Platform"
+        >
+          <ToggleButton
+            style={styles.toggleButton}
+            onClick={getUser}
+            value="user"
+          >
+            User
+          </ToggleButton>
+          <ToggleButton
+            style={styles.toggleButton}
+            onClick={getData}
+            value="post"
+          >
+            Post
+          </ToggleButton>
+        </ToggleButtonGroup>
+        <div>
+          {data &&
+            data.map((data) => {
+              if (data && data.title.includes(search)) {
+                return <SearchMap value={data} />;
+              } else {
+                <div>No data</div>;
+              }
+            })}
+        </div>
+        <div>
+          {user &&
+            user.map((user) => {
+              if (user && user.username.includes(search)) {
+                return <SearchMapUser value={user} />;
+              } else {
+              }
+            })}
+        </div>
       </div>
-      <div>
-        {user &&
-          user.map((user) => {
-            if (user && user.username.includes(search)) {
-              return <SearchMapUser value={user} />;
-            } else {
-            }
-          })}
-      </div>
+      <Footer />
     </div>
   );
 }

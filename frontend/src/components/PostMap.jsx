@@ -11,6 +11,7 @@ import moment from "moment";
 const PostMap = ({ value }) => {
   const [jump, setJump] = useState();
   const [data, setData] = useState();
+  const [image, setImage] = useState();
   const [switched, setSwitched] = useState(false);
   const ShowComment = () => {
     if (switched) {
@@ -22,6 +23,7 @@ const PostMap = ({ value }) => {
   const getData = async () => {
     const res = await instance.get(`/User/${value.user_id}`);
     setData(res.data.data.username);
+    setImage(res.data.data.image);
     setJump(res.data.data.id);
   };
 
@@ -84,6 +86,7 @@ const PostMap = ({ value }) => {
     image: {
       width: "50px",
       height: "50px",
+      borderRadius: "100px",
     },
     img: {
       width: "100%",
@@ -134,11 +137,7 @@ const PostMap = ({ value }) => {
     <div style={style.main}>
       <div style={style.helper}>
         <div style={style.header}>
-          <img
-            src="https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg"
-            style={style.image}
-            alt=""
-          />
+          <img src={image} style={style.image} alt={image} />
 
           <div style={style.headerHelper}>
             <Link

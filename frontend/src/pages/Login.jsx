@@ -70,7 +70,7 @@ function Login() {
       window.localStorage.setItem("user_id", JSON.stringify(res.data.data._id));
       window.localStorage.setItem("role", JSON.stringify(res.data.data.role));
     } catch (error) {
-      toast.error("Not found");
+      toast.error("имэйл эсвэл нууц үг буруу байна");
     }
   };
   return (
