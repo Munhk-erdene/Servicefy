@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
-import Home from "./pages/Home";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import HomeLogged from "./pages/HomeLogged";
@@ -27,9 +26,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/Register" element={<Register />} />
-          <Route path="/Login" element={<Login />} />
+          <Route path="/" element={<Login />} />
           <Route path="/:_id" element={<HomeLogged />} />
           <Route path="/:_id/:search" element={<Search />} />
           <Route path="/Post/:id" element={<PostJump />}></Route>

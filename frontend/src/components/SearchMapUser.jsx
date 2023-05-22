@@ -1,3 +1,5 @@
+import { Link } from "@mui/material";
+
 function SearchMapUser({ value }) {
   console.log(value);
   const styles = {
@@ -43,22 +45,28 @@ function SearchMapUser({ value }) {
   };
   console.log(value);
   return (
-    <div style={styles.main}>
-      <img style={styles.image} src={value.image} alt={value.image} />
-      <div style={styles.container}>
-        <div style={styles.items}>
-          <div style={styles.value}>email :</div>
-          <div style={styles.text}>{value.mail}</div>
-        </div>
-        <div style={styles.items}>
-          <div style={styles.value}>username :</div>
-          <div style={styles.text}>{value.username}</div>
-        </div>
-        <div style={styles.items}>
-          <div style={styles.text}>{value.post.length} posts</div>
+    <Link
+      style={{ textDecoration: "none", color: "black" }}
+      to={`/Profile/${value._id}`}
+    >
+      {" "}
+      <div style={styles.main}>
+        <img style={styles.image} src={value.image} alt={value.image} />
+        <div style={styles.container}>
+          <div style={styles.items}>
+            <div style={styles.value}>email :</div>
+            <div style={styles.text}>{value.mail}</div>
+          </div>
+          <div style={styles.items}>
+            <div style={styles.value}>username :</div>
+            <div style={styles.text}>{value.username}</div>
+          </div>
+          <div style={styles.items}>
+            <div style={styles.text}>{value.post.length} posts</div>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

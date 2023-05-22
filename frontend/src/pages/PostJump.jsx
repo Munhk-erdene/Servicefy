@@ -35,13 +35,12 @@ const styles = {
     display: "flex",
     width: "60vh",
     flexDirection: "column",
-    borderRadius: "10px",
+    border: "0.5px solid black",
   },
   headerHelper: {
     display: "flex",
     flexDirection: "center",
     alignItems: "center",
-    width: "100%",
   },
   responsiv: {
     display: "flex",
@@ -56,7 +55,10 @@ const styles = {
   undsenData: {
     width: "45vw",
     display: "flex",
+    padding: "10px",
+    borderRadius: "10px",
     flexDirection: "column",
+    border: "0.5px solid gray",
   },
   body: {
     marginTop: "1%",
@@ -64,6 +66,9 @@ const styles = {
   bodyImg: {
     width: "45vw",
     height: "70vh",
+    border: "0.5px solid black",
+    borderRight: "none",
+    borderLeft: "none",
   },
   proImg: {
     width: "50px",
@@ -72,10 +77,7 @@ const styles = {
   },
   date: {
     color: "gray",
-    marginLeft: "1%",
-  },
-  name: {
-    marginLeft: "1%",
+    fontSize: "13px",
   },
   input: {
     width: "45vw",
@@ -124,20 +126,38 @@ const styles = {
     height: "70.5%",
     overflowX: "scroll",
   },
+  headerMain: {
+    display: "flex",
+    flexDirection: "column",
+    marginLeft: "0.5vw",
+  },
+  name: {
+    fontSize: "20px",
+    fontWeight: "500",
+  },
+  text: {
+    fontSize: "20px",
+    fontWeight: "500",
+  },
+  Placer: {
+    display: "flex",
+    alignItems: "center",
+    marginLeft: "10px",
+  },
 };
 
 function PostJump() {
   const { id } = useParams();
   const [data, setData] = useState();
   const [value, setValue] = useState();
-  const [userName, setUserName] = useState();
+  const [userData, setUserData] = useState();
   const text = useRef(null);
   const getData = async () => {
     const res = await instance.get(`/Post/${id}`);
     setData(res.data.data);
     setValue(res.data.data.comment);
     const response = await instance.get(`/User/${data.user_id}`);
-    setUserName(response.data.data.username);
+    setUserData(response.data.data);
   };
 
   useEffect(() => {
@@ -173,12 +193,14 @@ function PostJump() {
                 {" "}
                 <img
                   style={styles.proImg}
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAPFBMVEXk5ueutLepsLPo6uursbXJzc/p6+zj5ea2u76orrKvtbi0ubzZ3N3O0dPAxcfg4uPMz9HU19i8wcPDx8qKXtGiAAAFTElEQVR4nO2d3XqzIAyAhUD916L3f6+f1m7tVvtNINFg8x5tZ32fQAIoMcsEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQTghAJD1jWtnXJPP/54IgNzZQulSmxvTH6oYXX4WS+ivhTbqBa1r26cvCdCu6i0YXbdZ0o4A1rzV+5IcE3YE+z58T45lqo7g1Aa/JY5tgoqQF3qb382x7lNzBLcxft+O17QUYfQI4IIeklKsPSN4i6LKj/7Zm8n99RbHJpEw9gEBXNBpKIYLJqKYRwjOikf//r+J8ZsVuacbqCMNleI9TqGLGqMzhnVdBOdd6F/RlrFijiCoVMk320CBIahUxTWI0KKEcJqKbMdpdJb5QvdHq6wCI5qhKlgGMS/RBHkubWDAE+QZxB4xhCyDiDkLZxgGEVdQldzSKbTIhmZkFkSEPcVvmBn2SMuZB9od7fQDsMiDdKJjFUSCQarM5WirZ3C2TT/htYnyPcPfgrFHWz0BI74gr6J/IZiGUxAZGQLqmvQLTrtE/Go4YxhVRIpEw+sww1IIcqr5NKmUUzLF3d4/qPkYIp2T/obPuemlojFUR4t9Q2Vojhb7BmgElWHzLPH8hucfpefPNFTVgs9h1AdU/Pin96vwWbWdf+X9Absn3OdO34aMdsDnP8WgKYisTqI6CkNGqZQo1XA6Ef6AU32SJzOcBukHPF07/xNSgmHKa5BOhtezv6mA/rYJpwXNAnbRZ1XuF3BzDcO3vpA3+ny2909gbqE4hhD3LIPhLLyBNhPZvbZ3B+3tPYa18A7auSlXQayKwTPNLKDcuOB0xPYKDPFTkWsevQPRZ1J8Hji9I1KQ34r7hZhrwNwOZ97QxNx0drwn4QI0wQk1DcEsfKCWKdxVvxPSNUIp/knmAXT+nT+Ko3+0H96rcNb3m1fx7MBTJdeBJ7uFcWsc0wvgAsC4pROW0l2inbAmIBv/7GZmuhQH6API2rr8T0e6yuZJ+80A9LZeG62T3tik31XwxtwZcizKuTHkMjB1WdZde4Kmic/A5ZI3rr1ae21d08PlVHYfAaxw9G9CYRbJ+8ZdbTcMRV1XM3VdF0M32vtoTdZ0+u29s0OttJ5bz64UwinjaFMVY9vkqc3KKSxN21Xl+0L4Q3Vuv1tYl0pqnX6ms4XetFz7gdZVAgUEoJntfOUe4ZwsHd9FzqQ3Vv6xe41l0XJcqcKl6TZvlv7ClAW3BsqQW4X7ypApB8dmTgK4IX5wvqIVj33HtD2qSG4BqznxdIefL27Y4sahi0MdIdvUsDva8agGGbCtITmCY31MHD2O0uIdh/0rJDQ1VX5Zdxz3rR2QDbv6qXl9vudzqQtGm1Jv9LDXOsfvvB7VcZ8PDKD0mQ1VHPYQ9O+Yj4hR1IUD8rBnn3ho2m8oQMxbCFiKlL2ioSW5heeJqegED52CzxCtcGD3Kv8Wms9EYLyUhwaFIhSMBClevWEmiK/Iaogu4H7sg6ppQhQG8RUqivuTGOAJOg6FfgW0q0M0PQMRMEgXaeNf3SYDZ8PIMI0+wHgr/MgN7wYwpiLjCCqM6ydUDZLQiB6nDdNC8SDyig3jPPpFXGcC9O8BUBDVmgBY59E7Md/35Loe/UVEECEJwYggJjELZ4J71SaQSBeC02n4Da29CayJNA28SAhd2CQyC1Xw6pSmGSINQVuMhAZp4DClan9MgmkDDNmezqwS8sgtlXK/EPBhoaSmYVC/F7IO1jQEdHOlabpKh3+jzLQSTUiq4X2I+Ip/zU8rlaqAvkS21ElR+gqu3zbjjL+hIAiCIAiCIAiCIAiCsCf/AKrfVhSbvA+DAAAAAElFTkSuQmCC"
-                  alt=""
+                  src={userData && userData.image}
+                  alt={userData && userData.image}
                 />
-                <div style={styles.name}>{userName}</div>
-                <div style={styles.date}>
-                  {moment(data && data.date).format("MMMM Do YYYY, h:mm:ss a")}
+                <div style={styles.headerMain}>
+                  <div style={styles.name}>{userData && userData.username}</div>
+                  <div style={styles.date}>
+                    {moment(data && data.date).format("MMMM Do YYYY, h:mm a")}
+                  </div>
                 </div>
               </div>
 
@@ -206,7 +228,7 @@ function PostJump() {
                 organized with Categories that also allow visitors to explore
                 more of what interests them.”
               </div>
-              <div>{data && data.text}</div>
+              <div style={styles.text}>{data && data.text}</div>
               <hr></hr>
               <div style={styles.bodyHelper}>
                 {" "}
@@ -253,6 +275,33 @@ function PostJump() {
                       <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
                     </svg>
                   </div>
+                  <div style={styles.Placer}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="26"
+                      height="26"
+                      fill="currentColor"
+                      class="bi bi-geo-alt"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                      <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                    </svg>
+                    <div>{data && data.locate}</div>
+                  </div>
+                  <div style={styles.Placer}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="26"
+                      height="26"
+                      fill="currentColor"
+                      class="bi bi-house"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z" />
+                    </svg>
+                    <div>{data && data.name}</div>
+                  </div>
                 </div>
                 <div>{data && data.type}</div>
               </div>
@@ -281,7 +330,10 @@ function PostJump() {
       <div style={{ marginTop: "5%" }}>
         {" "}
         <FooterImage />
-        <Footer />
+        <div style={{ marginTop: "-33px", gapTop: "none" }}>
+          {" "}
+          <Footer />
+        </div>
       </div>
     </div>
   );

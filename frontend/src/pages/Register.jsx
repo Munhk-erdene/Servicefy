@@ -31,9 +31,8 @@ function Register() {
           role: "user",
         });
         toast("Succesfull");
-        navigate("/Login");
+        navigate("/");
       } catch (error) {
-        console.log("register aldaa user");
         toast(error.response.data.error);
       }
     } else {
@@ -48,10 +47,9 @@ function Register() {
             role: "baigulga",
             serviceType: serviceType.current.value,
           });
-          toast("Succesfull");
-          navigate("/Login");
+          alert("zaswartai");
+          navigate("/");
         } catch (error) {
-          console.log("register aldaa baigulga");
           console.log(error);
           toast(error.response.data.error);
         }
@@ -83,7 +81,7 @@ function Register() {
       alignItems: "center",
     },
     none: {
-      height: switched ? "4vh" : "0px",
+      height: switched ? "50px" : "0px",
       visibility: switched ? "" : "hidden",
     },
     h1: {
