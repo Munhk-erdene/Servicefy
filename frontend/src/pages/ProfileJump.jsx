@@ -46,10 +46,6 @@ const ProfileJump = () => {
   return (
     <div style={styles.Container}>
       <div style={styles.main}>
-        <div style={{ border: "0.5px solid gray" }}>
-          {" "}
-          <Header />
-        </div>
         <h1
           style={{ fontSize: "45px", fontWeight: "bold", marginTop: "2 0px" }}
         >

@@ -1,15 +1,13 @@
 import React from "react";
-import { useEffect } from "react";
 import { useState } from "react";
 import { instance } from "../App";
 import { useParams } from "react-router-dom";
-import SearchMap from "../components/SearchMap";
 import SearchMapUser from "../components/SearchMapUser";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Footer from "../components/Footer";
-import { Header } from "../components/Header";
 import HeaderInput from "../components/HeaderInput";
+import PostMap from "../components/PostMap";
 
 function Search() {
   const [alignment, setAlignment] = React.useState("");
@@ -85,9 +83,8 @@ function Search() {
           {data &&
             data.map((data) => {
               if (data && data.title.includes(search)) {
-                return <SearchMap value={data} />;
+                return <PostMap value={data} />;
               } else {
-                <div>No data</div>;
               }
             })}
         </div>

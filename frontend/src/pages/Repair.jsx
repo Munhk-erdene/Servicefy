@@ -2,9 +2,9 @@ import React from "react";
 import "../App.css";
 import { useEffect, useState } from "react";
 import { instance } from "../App";
-import JumpItems from "../components/JumpItems";
 import { Header } from "../components/Header";
 import Footer from "../components/Footer";
+import PostMap from "../components/PostMap";
 function Repair() {
   const [data, setData] = useState();
   const [filtered, setFiltered] = useState();
@@ -41,7 +41,7 @@ function Repair() {
         </div>
         {filtered &&
           filtered.map((el) => {
-            return <JumpItems value={el} />;
+            return <PostMap value={el} />;
           })}
       </div>
 

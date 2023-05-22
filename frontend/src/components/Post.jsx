@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { instance } from "../App";
 import Select from "react-select";
 import { Button } from "react-bootstrap";
+import { Navigate } from "react-router-dom";
 
 export default function Post({ value }) {
   const [rate, SetRate] = useState("");
