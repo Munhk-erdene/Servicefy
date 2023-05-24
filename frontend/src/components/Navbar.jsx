@@ -4,19 +4,26 @@ import { data } from "./navbar/data";
 function Navbar() {
   return (
     <>
-      <div className="flex justify-center w-full mt-6 gap-8">
+      <div className="flex justify-center w-full gap-8 mt-6">
         {data &&
           data.map((el) => {
             return (
               <Link
+                key={Math.random()}
                 to={`/${el.text}`}
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <div className="helper">
-                  <div className="overflow-hidden w-fit h-fit bg-black">
-                    <img className="image cursor-pointer transition-all duration-300" src={el.image} alt="" />
+                  <div className="overflow-hidden bg-black w-fit h-fit">
+                    <img
+                      className="transition-all duration-300 cursor-pointer image"
+                      src={el.image}
+                      alt=""
+                    />
                   </div>
-                  <div className="flex flex-col font-bold text-base cursor-pointer">{el.text}</div>
+                  <div className="flex flex-col text-base font-bold cursor-pointer">
+                    {el.text}
+                  </div>
                 </div>
               </Link>
             );

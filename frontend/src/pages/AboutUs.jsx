@@ -45,7 +45,7 @@ function AboutUs() {
         {data &&
           data.map((el) => {
             return (
-              <div className="profile">
+              <div className="profile" key={Math.random()}>
                 <img className="img" src={el.img} alt="" />
                 <div className="names">{el.name}</div>
                 <div className="discord">{el.discord}</div>

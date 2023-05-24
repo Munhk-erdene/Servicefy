@@ -122,9 +122,12 @@ const styles = {
     justifyContent: "space-between",
   },
   CommentScroll: {
-    border: "1px solid red",
-    height: "70.5%",
+    marginTop: "1vh",
+    height: "70%",
     overflowX: "scroll",
+    border: "0.5px solid gray",
+    borderRadius: "8px",
+    padding: "10px 10px 0px 10px",
   },
   headerMain: {
     display: "flex",
@@ -162,7 +165,7 @@ function PostJump() {
 
   useEffect(() => {
     getData();
-  }, [data && data.rate]);
+  }, [data]);
   const handleKeyDown = async (event) => {
     if (event.key === "Enter") {
       try {
