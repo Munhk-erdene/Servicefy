@@ -2,7 +2,6 @@ import { instance } from "../App";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Footer from "../components/Footer";
-import { Header } from "../components/Header";
 import ProfileMap from "../components/ProfileMap";
 const ProfileJump = () => {
   const styles = {

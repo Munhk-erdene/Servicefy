@@ -2,9 +2,9 @@ import React from "react";
 import "../App.css";
 import { useEffect, useState } from "react";
 import { instance } from "../App";
-import { Header } from "../components/Header";
 import Footer from "../components/Footer";
 import PostMap from "../components/PostMap";
+import MainHeader from "../components/mainHeader";
 function Franchise() {
   const [data, setData] = useState();
   const [filtered, setFiltered] = useState();
@@ -36,9 +36,7 @@ function Franchise() {
       }}
     >
       <div>
-        <div style={{ border: "0.5px solid black" }}>
-          <Header />
-        </div>
+        <MainHeader />
         {filtered &&
           filtered.map((el) => {
             return <PostMap value={el} />;

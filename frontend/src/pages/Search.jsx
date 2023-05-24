@@ -6,8 +6,8 @@ import SearchMapUser from "../components/SearchMapUser";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Footer from "../components/Footer";
-import HeaderInput from "../components/HeaderInput";
 import PostMap from "../components/PostMap";
+import MainHeader from "../components/mainHeader";
 
 function Search() {
   const [alignment, setAlignment] = React.useState("");
@@ -55,7 +55,7 @@ function Search() {
   return (
     <div style={styles.main}>
       <div style={styles.container}>
-        <HeaderInput />
+        <MainHeader />
         <div style={styles.title}>You searched "{search}"</div>
         <ToggleButtonGroup
           color="primary"

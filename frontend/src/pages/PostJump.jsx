@@ -7,11 +7,11 @@ import { useEffect } from "react";
 import { useRef } from "react";
 import CommentMap from "../components/CommentMap";
 import Footer from "../components/Footer";
-import { Header } from "../components/Header";
 import GetAllPost from "../components/GetAllPost";
 import Rating from "@mui/material/Rating";
 import FooterImage from "../components/FooterImage";
 import moment from "moment";
+import MainHeader from "../components/mainHeader";
 const styles = {
   container: {
     display: "flex",
@@ -182,9 +182,7 @@ function PostJump() {
 
   return (
     <div style={styles.main}>
-      <div style={styles.borderheader}>
-        <Header />
-      </div>
+      <MainHeader />
       <div style={styles.responsiv}>
         <div style={styles.container}>
           <div style={styles.undsenData}>
