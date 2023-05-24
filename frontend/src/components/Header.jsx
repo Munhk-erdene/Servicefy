@@ -11,12 +11,14 @@ const style = {
   deedSign: {
     fontWeight: "bolder",
     marginRight: "20px",
+    paddingTop: "5px",
+    cursor: "pointer",
   },
   logo: {
     marginRight: "20px",
     marginTop: "5px",
-    width: "30px",
-    height: "30px",
+    width: "5vw",
+    height: "5vh",
   },
   deed: {
     width: "100vw",
@@ -31,9 +33,9 @@ const style = {
     justifyContent: "flex-end",
   },
   search: {
+    height: "4vh",
+    width: "15vw",
     marginRight: "20px",
-    height: "30px",
-    width: "200px",
     paddingLeft: "20px",
   },
   button: {
@@ -75,21 +77,17 @@ export const Header = () => {
           <Logo />
         </div>
         <div style={style.helper}>
-          <Link style={{ textDecoration: "none", color: "black" }} to="/Login">
-            <div style={style.deedSign}>SIGN IN</div>
+          <Link style={{ textDecoration: "none", color: "black" }} to="/">
+            <div style={style.deedSign}>Sign In</div>
           </Link>
           <Link
             style={{ textDecoration: "none", color: "black" }}
             to="/Register"
           >
-            <div style={style.deedSign}>SIGN UP</div>
+            <div style={style.deedSign}>Sign Up</div>
           </Link>
-          <Link style={{ textDecoration: "none", color: "black" }} to="/Rate">
-            <div style={style.deedSign}>TOP</div>
-          </Link>
-
           <div style={style.deedSign} onClick={createItem}>
-            CREATE A POST
+            Create Post
           </div>
 
           <input

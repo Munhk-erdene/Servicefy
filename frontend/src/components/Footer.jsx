@@ -73,7 +73,7 @@ const Footer = () => {
             </span>
           </div>
           <span style={styles.footerNames}>
-            Â© 2023 Servicefy, Inc. All Rights Reserved
+            © 2023 Servicefy, Inc. All Rights Reserved
           </span>
         </div>
         <div style={styles.botSideTwo}>

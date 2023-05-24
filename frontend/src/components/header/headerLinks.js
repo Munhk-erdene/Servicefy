@@ -31,4 +31,8 @@ export const headerLinks = [
     label: "Health",
     to: "/Health",
   },
+  {
+    label: "Top Rate",
+    to: "/Rate",
+  },
 ];

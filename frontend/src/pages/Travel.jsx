@@ -41,7 +41,7 @@ function Travel() {
         </div>
         {filtered &&
           filtered.map((el) => {
-            return <PostMap value={el} />;
+            return <PostMap key={Math.random()} value={el} />;
           })}
       </div>
 
