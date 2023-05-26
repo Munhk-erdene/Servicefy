@@ -36,6 +36,7 @@ const PostSchema = new mongoose.Schema(
     title: {
       required: [true],
       type: String,
+      maxLength: [40, "Soo long.."],
     },
     user_id: {
       required: [true],

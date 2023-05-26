@@ -43,8 +43,9 @@ function Search() {
   const [user, setUser] = useState();
   const getData = async () => {
     const res = await instance.get("/Post");
-    setData(res.data.data);
+    setData(res.data.data.title);
     setUser("");
+    console.log(data);
   };
   const getUser = async () => {
     const response = await instance.get("/User");
@@ -82,7 +83,7 @@ function Search() {
         <div>
           {data &&
             data.map((data) => {
-              if (data && data.title.includes(search)) {
+              if (data && data.includes(search)) {
                 return <PostMap value={data} />;
               } else {
               }

@@ -3,30 +3,30 @@ import { Link } from "react-router-dom";
 import { instance } from "../App";
 
 const styles = {
-  img: {
-    width: "13vh",
-    height: "13vh ",
-  },
   ad: {
     width: "100%",
+    border: "0.5px solid black",
   },
-  map: {},
-  helper: {
-    marginTop: "10px",
-
-    display: "flex",
-    border: "0.5px solid gray",
+  img: {
+    width: "50%",
+    height: "15vh",
+    borderRight: "0.1px solid gray",
+  },
+  mapMain: {
+    marginTop: "1vh",
+    border: "0.1px solid gray",
+    display: "Flex",
+  },
+  mapHelper: {
+    padding: "0.1vh",
+    height: "100%",
   },
   title: {
-    width: "100%",
+    height: "5vh",
   },
-  helperHelper: {
-    display: "flex",
-    flexDirection: "column",
-    padding: "10px",
-  },
-  logo: {
-    display: "flex",
+  comment: {
+    display: "Flex",
+    alignItems: "center",
   },
 };
 
@@ -41,16 +41,27 @@ const GetAllPost = () => {
   }, []);
 
   const renderPost = (post) => (
-    <div key={post.id}>
-      <img
-        src={post.img}
-        alt={post.img}
-        width="13vh"
-        height="13vh"
-      />
-      <div>
-        <Link to={`/Post/${post.id}`}>{post.title}</Link>
-        <div style={{ marginTop: "-4px", marginLeft: "5px" }}>{post.comment.length}</div>
+    <div style={styles.mapMain} key={post.id}>
+      <img style={styles.img} src={post.img} alt={post.img} />
+      <div style={styles.mapHelper}>
+        <div style={styles.title} className="mainHeaderStyle">
+          {post.title}
+        </div>
+        <div>
+          <div style={styles.comment}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-chat-left"
+              viewBox="0 0 16 16"
+            >
+              <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+            </svg>
+            {post.comment.length}
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -62,9 +73,7 @@ const GetAllPost = () => {
         src="https://i0.wp.com/thelatzreport.com.au/wp-content/uploads/2019/09/Classified-Placeholder-300_160.png?fit=300%2C160&ssl=1"
         alt="https://i0.wp.com/thelatzreport.com.au/wp-content/uploads/2019/09/Classified-Placeholder-300_160.png?fit=300%2C160&ssl=1"
       />
-      <div style={styles.map}>
-        {data && data.map(renderPost)}
-      </div>
+      <div style={styles.map}>{data && data.map(renderPost)}</div>
     </div>
   );
 };

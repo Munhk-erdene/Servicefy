@@ -26,30 +26,25 @@ const PostRate = () => {
     },
     top: {
       fontSize: "250%",
-      paddingLeft: "10%",
-      paddingTop: "3%",
+      fontWeight: "500",
     },
     link: {
       textDecoration: "none",
       color: "gray",
       fontSize: "120%",
     },
-    post: {
-      paddingTop: "4%",
+    main: {
+      display: "flex",
+      flexDirection: "column",
+
+      alignItems: "CENTER",
     },
   };
 
   return (
-    <div>
+    <div style={styles.main}>
       <MainHeader />
-      <div style={styles.head}>
-        <div style={styles.top}>TOP POSTS</div>
-        <div>
-          <Link to="/Home" style={styles.link}>
-            /Home
-          </Link>
-        </div>
-      </div>
+      <div style={styles.top}>TOP RATED POSTS</div>
       <div style={styles.post}>
         {data &&
           data.map((data) => {

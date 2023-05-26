@@ -15,6 +15,7 @@ import Search from "./pages/Search";
 import Franchise from "./pages/Franchise";
 import Health from "./pages/Health";
 import Contact from "./pages/Contact";
+import Ad from "./pages/Ad";
 export const instance = axios.create({
   baseURL: "http://localhost:6969",
   headers: {
@@ -38,11 +39,12 @@ function App() {
           <Route path="/Relax" element={<Relax />}></Route>
           <Route path="/Travel" element={<Travel />}></Route>
           <Route path="/AboutUs" element={<AboutUs />}></Route>
-          <Route path="/Rate" element={<PostRate />}></Route>
+          <Route path="/Top" element={<PostRate />}></Route>
           <Route path="/Franchise" element={<Franchise />}></Route>
-          <Route path="Contact" element={<Contact />}></Route>
+          <Route path="/Contact" element={<Contact />}></Route>
           <Route path="/Health" element={<Health />}></Route>
           <Route path="/About" element={<AboutUs />}></Route>
+          <Route path="/Ad" element={<Ad />} />
         </Routes>
       </BrowserRouter>
     </div>
