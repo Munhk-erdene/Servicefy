@@ -14,6 +14,10 @@ const CommentSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please login"],
   },
+  date: {
+    type: Date,
+    default: Date,
+  },
 });
 const Comment = mongoose.model("Comment", CommentSchema);
 export default Comment;

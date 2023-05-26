@@ -3,8 +3,8 @@ import "../App.css";
 const ProfileMap = ({ value }) => {
   const styles = {
     img: {
-      width: "20vw",
-      height: "30vh ",
+      width: "15vw",
+      height: "25vh ",
     },
     container: {
       display: "flex",

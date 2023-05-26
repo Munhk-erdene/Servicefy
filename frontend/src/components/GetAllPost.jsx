@@ -3,59 +3,33 @@ import { Link } from "react-router-dom";
 import { instance } from "../App";
 
 const styles = {
-  img: {
-    width: "13vh",
-    height: "13vh ",
-  },
   ad: {
     width: "100%",
+    border: "0.5px solid black",
   },
-  map: {
-    display: "flex",
-    flexDirection: "column",
-    overflowX: "scroll",
-    height: "70vh",
+  img: {
+    width: "50%",
+    height: "15vh",
+    borderRight: "0.1px solid gray",
   },
-  helper: {
-    marginTop: "10px",
-    display: "flex",
-    border: "0.5px solid gray",
+  mapMain: {
+    marginTop: "1vh",
+    border: "0.1px solid gray",
+    display: "Flex",
+  },
+  mapHelper: {
+    padding: "0.1vh",
+    height: "100%",
   },
   title: {
-    width: "100%",
+    height: "5vh",
   },
-  helperHelper: {
-    display: "flex",
-    flexDirection: "column",
-    padding: "10px",
-  },
-  logo: {
-    display: "flex",
-  },
-  miniPost: {
-    display: "flex",
-    flexDirection: "row",
-  },
-  link: {
-    textDecoration: "none",
-    color: "black",
-  },
-  render: {
-    border: "0.5px solid",
-    botderRadius: "8px",
-    marginTop: "3vh ",
-  },
-  miniPostRight: {
-    display: "flex",
-    flexDirection: "column",
-    padding: "0.2rem 0rem 0rem 1rem",
-  },
-  image: {
-    border: "0.5px solid",
-    height: "15vh",
-    width: "10vw",
+  comment: {
+    display: "Flex",
+    alignItems: "center",
   },
 };
+
 const GetAllPost = () => {
   const [data, setData] = useState();
   const getData = async () => {
@@ -65,19 +39,33 @@ const GetAllPost = () => {
   useEffect(() => {
     getData();
   }, []);
+
   const renderPost = (post) => (
-    <div style={styles.render} key={post.id}>
-      <div style={styles.miniPost}>
-        <img style={styles.image} src={post.img} alt={post.img} />
-        <div style={styles.miniPostRight}>
-          <Link style={styles.link} to={`/Post/${post.id}`}>
-            {post.title}
-          </Link>
-          <div>{post.comment.length} Comments</div>
+    <div style={styles.mapMain} key={post.id}>
+      <img style={styles.img} src={post.img} alt={post.img} />
+      <div style={styles.mapHelper}>
+        <div style={styles.title} className="mainHeaderStyle">
+          {post.title}
+        </div>
+        <div>
+          <div style={styles.comment}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-chat-left"
+              viewBox="0 0 16 16"
+            >
+              <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+            </svg>
+            {post.comment.length}
+          </div>
         </div>
       </div>
     </div>
   );
+
   return (
     <div>
       <img
@@ -89,4 +77,5 @@ const GetAllPost = () => {
     </div>
   );
 };
+
 export default GetAllPost;

@@ -3,15 +3,16 @@ import bcrypt from "bcrypt";
 
 const UserSchema = new mongoose.Schema(
   {
-    image:{
+    image: {
       type: String,
-      default:"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+      default:
+        "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
     },
     username: {
       type: String,
       required: [true, "нэвтрэх нэрээ оруулна уу"],
     },
-    mail:{
+    mail: {
       type: String,
       required: [true, "mail оруулна уу"],
       mixLength: [20, "too long , 20 н оронтой байна"],
@@ -21,23 +22,30 @@ const UserSchema = new mongoose.Schema(
       required: [true, "нууц үгээ оруулна уу"],
       minLength: [8, "хэтэрхий богино байна , 8 н оронтой байна"],
     },
-    type:{
-      type:String,
-      enum:["User", "Baigulga"],
+    type: {
+      type: String,
+      enum: ["User", "Baigulga"],
       required: [true],
     },
-    serviceType:{
+    serviceType: {
       type: String,
-      enum: ["Franchise", "Travel", "Massage", "Repair","Relax","Health"],
+      enum: ["Franchise", "Travel", "Massage", "Repair", "Relax", "Health"],
     },
     role: {
       type: String,
-      enum: ["user", "admin","baigulga"],
+      enum: ["user", "admin", "baigulga"],
       default: "user",
       required: [true, "please specify user role"],
     },
-    locate:{
-      type:String,
+    locate: {
+      type: String,
+    },
+    date: {
+      type: Date,
+      default: Date,
+    },
+    title: {
+      type: String,
     },
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }

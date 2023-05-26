@@ -2,16 +2,16 @@ import React from "react";
 import "../App.css";
 import { useState } from "react";
 import { instance } from "../App";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useRef } from "react";
 import CommentMap from "../components/CommentMap";
 import Footer from "../components/Footer";
-import { Header } from "../components/Header";
 import GetAllPost from "../components/GetAllPost";
 import Rating from "@mui/material/Rating";
 import FooterImage from "../components/FooterImage";
 import moment from "moment";
+import MainHeader from "../components/mainHeader";
 const styles = {
   container: {
     display: "flex",
@@ -35,7 +35,6 @@ const styles = {
     display: "flex",
     width: "60vh",
     flexDirection: "column",
-    border: "0.5px solid black",
   },
   headerHelper: {
     display: "flex",
@@ -58,7 +57,6 @@ const styles = {
     padding: "10px",
     borderRadius: "10px",
     flexDirection: "column",
-    border: "0.5px solid gray",
   },
   body: {
     marginTop: "1%",
@@ -78,6 +76,11 @@ const styles = {
   date: {
     color: "gray",
     fontSize: "13px",
+  },
+  dates: {
+    color: "gray",
+    fontSize: "13px",
+    marginLeft: "10px",
   },
   input: {
     width: "45vw",
@@ -121,14 +124,7 @@ const styles = {
     alignItems: "center",
     justifyContent: "space-between",
   },
-  CommentScroll: {
-    marginTop: "1vh",
-    height: "70%",
-    overflowX: "scroll",
-    border: "0.5px solid gray",
-    borderRadius: "8px",
-    padding: "10px 10px 0px 10px",
-  },
+
   headerMain: {
     display: "flex",
     flexDirection: "column",
@@ -141,6 +137,7 @@ const styles = {
   text: {
     fontSize: "20px",
     fontWeight: "500",
+    padding: "10px",
   },
   Placer: {
     display: "flex",
@@ -159,13 +156,13 @@ function PostJump() {
     const res = await instance.get(`/Post/${id}`);
     setData(res.data.data);
     setValue(res.data.data.comment);
-    const response = await instance.get(`/User/${data.user_id}`);
+    const response = await instance.get(`/User/${data && data.user_id}`);
     setUserData(response.data.data);
   };
 
   useEffect(() => {
     getData();
-  }, [data]);
+  }, [data && data.rate]);
   const handleKeyDown = async (event) => {
     if (event.key === "Enter") {
       try {
@@ -185,9 +182,7 @@ function PostJump() {
 
   return (
     <div style={styles.main}>
-      <div style={styles.borderheader}>
-        <Header />
-      </div>
+      <MainHeader />
       <div style={styles.responsiv}>
         <div style={styles.container}>
           <div style={styles.undsenData}>
@@ -201,8 +196,11 @@ function PostJump() {
                 />
                 <div style={styles.headerMain}>
                   <div style={styles.name}>{userData && userData.username}</div>
-                  <div style={styles.date}>
-                    {moment(data && data.date).format("MMMM Do YYYY, h:mm a")}
+                  <div style={{ display: "Flex" }}>
+                    <div style={styles.date}>
+                      {moment(data && data.date).format("MMMM Do, h:mma")}
+                    </div>
+                    <div style={styles.dates}>{data && data.type}</div>
                   </div>
                 </div>
               </div>
@@ -231,8 +229,10 @@ function PostJump() {
                 organized with Categories that also allow visitors to explore
                 more of what interests them.”
               </div>
-              <div style={styles.text}>{data && data.text}</div>
-              <hr></hr>
+              <div className="mainHeaderStyle" style={styles.text}>
+                {data && data.text}
+              </div>
+              <hr style={{ marginTop: "0px" }}></hr>
               <div style={styles.bodyHelper}>
                 {" "}
                 <div style={styles.logos}>
@@ -292,21 +292,8 @@ function PostJump() {
                     </svg>
                     <div>{data && data.locate}</div>
                   </div>
-                  <div style={styles.Placer}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="26"
-                      height="26"
-                      fill="currentColor"
-                      class="bi bi-house"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z" />
-                    </svg>
-                    <div>{data && data.name}</div>
-                  </div>
                 </div>
-                <div>{data && data.type}</div>
+                <div>{data && data.name}</div>
               </div>
               <hr></hr>
             </div>
@@ -330,7 +317,7 @@ function PostJump() {
           <GetAllPost />
         </div>
       </div>
-      <div style={{ marginTop: "5%" }}>
+      <div style={{ marginTop: "1%" }}>
         {" "}
         <FooterImage />
         <div style={{ marginTop: "-33px", gapTop: "none" }}>
@@ -343,3 +330,4 @@ function PostJump() {
 }
 
 export default PostJump;
+

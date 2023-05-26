@@ -29,7 +29,9 @@ body {
   align-items: center;
   background-color: white;
 }
-
+.mainHeaderStyle{
+  font-family: 'Alkatra', cursive;
+}
 .sign {
   display: flex;
 }

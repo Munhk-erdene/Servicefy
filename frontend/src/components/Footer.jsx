@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   const styles = {
     footerContainer: {
@@ -51,13 +53,7 @@ const Footer = () => {
     },
   };
 
-  const footerNames = [
-    "Contact Us",
-    "About Us",
-    "Careers",
-    "Sign Up For Email",
-    "Get Help",
-  ];
+  const footerNames = ["Contact", "About", "Careers", "Sign-Up", "Help"];
   return (
     <div style={styles.footerContainer}>
       <div style={styles.botFooter}>
@@ -76,16 +72,20 @@ const Footer = () => {
             © 2023 Servicefy, Inc. All Rights Reserved
           </span>
         </div>
+
         <div style={styles.botSideTwo}>
           {footerNames.map((name, i) => (
-            <span
-              key={i}
-              className={
-                "text-white text-base cursor-pointer transition-all duration-300 font-semibold hover:text-gray-500"
-              }
-            >
-              {name}
-            </span>
+            <Link style={{ textDecoration: "None" }} to={`/${name}`}>
+              {" "}
+              <span
+                key={i}
+                className={
+                  "text-white text-base cursor-pointer transition-all duration-300 font-semibold hover:text-gray-500"
+                }
+              >
+                {name}
+              </span>
+            </Link>
           ))}
         </div>
       </div>

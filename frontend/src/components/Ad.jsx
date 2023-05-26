@@ -28,7 +28,7 @@ const ExampleCarousel = () => {
         <Carousel.Item key={slide.src}>
           <img
             className="d-block w-100"
-            style={{ height: "90vh" }}
+            style={{ height: "95vh" }}
             src={slide.src}
             alt={slide.alt}
           />
