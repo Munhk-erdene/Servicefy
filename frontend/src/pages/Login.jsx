@@ -13,10 +13,11 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    flexDirection: "row",
+    flexDirection: "column",
+    gap: "4vh",
   },
   inputMain: {
-    width: "500px",
+    width: "35vw",
     display: "flex",
     flexDirection: "column",
     gap: "15px",
@@ -28,6 +29,7 @@ const styles = {
     justifyContent: "center",
     alignItems: "start",
     flexDirection: "column",
+    gap: "1.5vh",
   },
   NikeIconCn: {
     width: "500px",
@@ -43,15 +45,25 @@ const styles = {
     fontSize: "28px",
     fontWeight: "400",
     marginTop: "20px",
+    width: "35vw",
   },
   button: {
-    width: "500px",
+    width: "35vw",
     height: "40px",
     backgroundColor: "white",
     color: "black",
     borderRadius: "5px",
     fontWeight: "600",
     marginTop: "10px",
+  },
+  logo: {
+    display: "flex",
+    width: "10vw",
+    height: "10vh",
+  },
+  Hello: {
+    fontSize: "20px",
+    fontWeight: "400",
   },
 };
 function Login() {
@@ -76,8 +88,10 @@ function Login() {
   return (
     <>
       <div style={styles.Body}>
-        <div style={styles.BodyChild}>
+        <div style={styles.logo}>
           <Logo />
+        </div>
+        <div style={styles.BodyChild}>
           <div>
             <h1 style={styles.h1}>
               Нэвтрэхийн тулд бүртгэлтэй имэйл ээ оруулна уу.
@@ -98,7 +112,6 @@ function Login() {
             />
           </div>
           <div>
-            <br></br>
             <Link
               style={{
                 textDecoration: "none",
@@ -106,10 +119,9 @@ function Login() {
               }}
               to="/Register"
             >
-              <strong>Шинээр хэрэглэгч үүсгэх</strong>
+              <div style={styles.Hello}>Шинээр хэрэглэгч үүсгэх</div>
             </Link>
           </div>
-
           <Button style={styles.button} onClick={LoginPost} variant="contained">
             Нэвтрэх
           </Button>

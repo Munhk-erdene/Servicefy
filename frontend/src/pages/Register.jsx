@@ -64,7 +64,8 @@ function Register() {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      flexDirection: "row",
+      flexDirection: "column",
+      gap: "4vh",
     },
     inputMain: {
       height: switched ? "330px" : "160px",
@@ -81,7 +82,7 @@ function Register() {
       alignItems: "center",
     },
     none: {
-      height: switched ? "50px" : "0px",
+      height: switched ? "8vh" : "0px",
       visibility: switched ? "" : "hidden",
     },
     h1: {
@@ -106,12 +107,19 @@ function Register() {
       marginTop: "1vh",
       border: "1px solid ",
     },
+    logo: {
+      display: "flex",
+      width: "10vw",
+      height: "10vh",
+    },
   };
 
   return (
     <div style={style.container}>
-      <div style={style.Main}>
+      <div style={style.logo}>
         <Logo />
+      </div>
+      <div style={style.Main}>
         <h1 style={style.h1}>
           Шинэ {switched ? "байгууллaгa бүртгүүлэх" : "хэрэглэгч болох"}
         </h1>

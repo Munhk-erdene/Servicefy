@@ -39,7 +39,7 @@ function Travel() {
         <MainHeader />
         {filtered &&
           filtered.map((el) => {
-            return <PostMap value={el} />;
+            return <PostMap key={Math.random()} value={el} />;
           })}
       </div>
 

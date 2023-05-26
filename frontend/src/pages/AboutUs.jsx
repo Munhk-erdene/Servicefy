@@ -3,22 +3,22 @@ import "./AboutUs.css";
 function AboutUs() {
   const data = [
     {
-      img: "https://avatarfiles.alphacoders.com/276/276238.png",
+      img: "https://scontent.fuln1-2.fna.fbcdn.net/v/t39.30808-6/324259259_565764695569197_5052157878188652179_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=qCbBEPQuTj4AX9ANhVP&_nc_ht=scontent.fuln1-2.fna&oh=00_AfAttYDY9SJBhngtCXIJXIdBAAiMzdnZTnCaXJcKCMa80w&oe=64737925",
       name: "Мөнх-Эрдэнэ",
       discord: "99179429",
     },
     {
-      img: "https://e1.pxfuel.com/desktop-wallpaper/397/765/desktop-wallpaper-nakano-itsuki-gotoubun-nakano-itsuki-anime.jpg",
+      img: "https://scontent.fuln1-2.fna.fbcdn.net/v/t39.30808-6/338142679_1615620078920048_3126659655933305119_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=l1fE34blcNcAX83-sXP&_nc_ht=scontent.fuln1-2.fna&oh=00_AfDRY01jM8qw3aGZDgVkZTywDAMteuj1H15WTYCEwTm5kQ&oe=647464F7",
       name: "Барсболд",
-      discord: "DioBrando #3262",
+      discord: "89879498",
     },
     {
-      img: "https://w0.peakpx.com/wallpaper/198/202/HD-wallpaper-miku-nakano-thumbnail.jpg",
+      img: "https://scontent.fuln1-2.fna.fbcdn.net/v/t39.30808-6/332500556_592814506226351_851377547943461920_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=6JKFCF0OAycAX-5GIW7&_nc_ht=scontent.fuln1-2.fna&oh=00_AfDUJcNVY1NyYyRUKtXohyMq-IQZsg0bjASVyyZWrpux8g&oe=64739B22",
       name: "Мөнх-Оргил",
       discord: "orgil #3034",
     },
     {
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTodD3BTKFvA3udGTjkBpNmBycvQnNdoGJZqw&usqp=CAU",
+      img: "https://scontent.fuln1-2.fna.fbcdn.net/v/t39.30808-6/324259259_565764695569197_5052157878188652179_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=qCbBEPQuTj4AX9ANhVP&_nc_ht=scontent.fuln1-2.fna&oh=00_AfAttYDY9SJBhngtCXIJXIdBAAiMzdnZTnCaXJcKCMa80w&oe=64737925",
       name: "Өсөх-Ирээдүй",
       discord: "usukh-ireedui #8810",
     },
@@ -45,7 +45,7 @@ function AboutUs() {
         {data &&
           data.map((el) => {
             return (
-              <div className="profile">
+              <div className="profile" key={Math.random()}>
                 <img className="img" src={el.img} alt="" />
                 <div className="names">{el.name}</div>
                 <div className="discord">{el.discord}</div>
