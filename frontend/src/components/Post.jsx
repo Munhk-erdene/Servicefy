@@ -126,6 +126,7 @@ export default function Post({ value }) {
       toast("Succesfull");
     } catch (error) {
       toast.error("Дээрх бүгдийг бөглөнө үү");
+      console.log(error);
     }
   };
 

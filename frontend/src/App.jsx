@@ -16,6 +16,7 @@ import Franchise from "./pages/Franchise";
 import Health from "./pages/Health";
 import Contact from "./pages/Contact";
 import Ad from "./pages/Ad";
+import EditProfile from "./pages/EditProfile";
 export const instance = axios.create({
   baseURL: "http://localhost:6969",
   headers: {
@@ -45,6 +46,7 @@ function App() {
           <Route path="/Health" element={<Health />}></Route>
           <Route path="/About" element={<AboutUs />}></Route>
           <Route path="/Ad" element={<Ad />} />
+          <Route path="/Edit/:id" element={<EditProfile />} />
         </Routes>
       </BrowserRouter>
     </div>
