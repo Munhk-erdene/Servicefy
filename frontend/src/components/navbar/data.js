@@ -8,7 +8,7 @@ export const data = [
   {
     image:
       "https://static.wixstatic.com/media/5bfb6f_ea37f67cad544b348df9f3d0ff40f282.jpg/v1/fill/w_628,h_520,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/5bfb6f_ea37f67cad544b348df9f3d0ff40f282.jpg",
-    text: "Түргэн хоол",
+    text: "Франчайз",
     jump: "Franchise",
   },
   {

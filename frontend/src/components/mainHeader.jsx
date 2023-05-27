@@ -96,14 +96,6 @@ const MainHeader = () => {
             </div>
           </Link>
           <Link
-            to={`/Contact`}
-            style={{ color: "black", textDecoration: "none" }}
-          >
-            <div className="mainHeaderStyle" style={styles.text}>
-              Contact
-            </div>
-          </Link>
-          <Link
             to={`/About`}
             style={{ color: "black", textDecoration: "none" }}
           >

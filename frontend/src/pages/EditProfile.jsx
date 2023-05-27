@@ -84,6 +84,7 @@ const EditProfile = () => {
     },
     button: {
       backgroundColor: "black",
+      width: "38.5vw",
     },
   };
   return (

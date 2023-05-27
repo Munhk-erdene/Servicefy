@@ -4,7 +4,6 @@ import { useNavigate, Link } from "react-router-dom";
 import { TextField, Button } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Logo from "../components/Logo";
 
 const styles = {
   Body: {
@@ -105,6 +104,7 @@ function Login() {
               id="outlined-basic"
               label="Нууц үг"
               variant="outlined"
+              type="password"
             />
           </div>
           <div>

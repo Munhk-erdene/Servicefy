@@ -45,6 +45,10 @@ const styles = {
     fontSize: "13px",
     color: "gray",
   },
+  link: {
+    textDecoration: "none",
+    color: "black",
+  },
 };
 
 const GetAllPost = () => {
@@ -66,13 +70,14 @@ const GetAllPost = () => {
             {moment(post.date).format("MMMM Do YYYY, h:mm a")}
           </div>
           <div style={styles.title} className="mainHeaderStyle">
-            {post.title}
+            <Link style={styles.link} to={`/Post/${post.id}`}>
+              {post.title}
+            </Link>
           </div>
         </div>
 
         <div style={styles.comment}>
-          <div style={styles.comments}> {post.comment.length}</div>
-          <div>comments</div>
+          <div style={styles.comments}>{post.comment.length} Comments</div>
         </div>
       </div>
     </div>

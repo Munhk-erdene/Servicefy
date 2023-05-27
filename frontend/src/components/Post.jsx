@@ -51,7 +51,7 @@ export default function Post({ value }) {
     },
     noneInput: {
       height: "3vh",
-      width: "13vw",
+      width: "15vw",
     },
     button: {
       height: "4.5vh",
@@ -81,12 +81,12 @@ export default function Post({ value }) {
     { value: "5", label: "5" },
   ];
   const types = [
-    { value: "Repair", label: "Repair" },
-    { value: "Relax", label: "Relax" },
-    { value: "Travel", label: "Travel" },
-    { value: "Franchise", label: "Franchise" },
-    { value: "Massage", label: "Massage" },
-    { value: "Health", label: "Health" },
+    { value: "Repair", label: "Засвар үйлчилгээ" },
+    { value: "Relax", label: "Амралт" },
+    { value: "Travel", label: "Аялал зугаалга" },
+    { value: "Franchise", label: "Франчайз" },
+    { value: "Massage", label: "Массаж" },
+    { value: "Health", label: "Эрүүл мэнд" },
   ];
 
   const text = useRef();

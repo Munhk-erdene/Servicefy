@@ -134,6 +134,7 @@ function Register() {
             variant="outlined"
             style={style.input}
             inputRef={password}
+            type="password"
           />
           <TextField
             id="outlined-basic"
