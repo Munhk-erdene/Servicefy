@@ -67,7 +67,9 @@ const MainHeader = () => {
   const createItem = () => {
     if (createDisplay.isDisplay === false) {
       setCreateDisplay({ display: "inline", isDisplay: true });
+      setCreateDisplay("");
     } else {
+      setCreateDisplay("");
       setCreateDisplay({ display: "none", isDisplay: false });
     }
   };
@@ -112,11 +114,6 @@ const MainHeader = () => {
           <Link to={`/Top`} style={{ color: "black", textDecoration: "none" }}>
             <div className="mainHeaderStyle" style={styles.text}>
               Top
-            </div>
-          </Link>
-          <Link to={`/Ad`} style={{ color: "black", textDecoration: "none" }}>
-            <div className="mainHeaderStyle" style={styles.text}>
-              Buy Ad
             </div>
           </Link>
         </div>

@@ -3,14 +3,15 @@ import "../App.css";
 const ProfileMap = ({ value }) => {
   const styles = {
     img: {
-      width: "15vw",
-      height: "25vh ",
+      width: "16.5vw",
+      height: "26vh ",
     },
     container: {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
       border: "1px solid black",
+      margin: "7px",
     },
   };
 

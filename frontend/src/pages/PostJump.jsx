@@ -11,6 +11,7 @@ import GetAllPost from "../components/GetAllPost";
 import Rating from "@mui/material/Rating";
 import FooterImage from "../components/FooterImage";
 import moment from "moment";
+import { Link } from "react-router-dom";
 import MainHeader from "../components/mainHeader";
 const styles = {
   container: {
@@ -187,23 +188,30 @@ function PostJump() {
         <div style={styles.container}>
           <div style={styles.undsenData}>
             <div style={styles.header}>
-              <div style={styles.headerHelper}>
-                {" "}
-                <img
-                  style={styles.proImg}
-                  src={userData && userData.image}
-                  alt={userData && userData.image}
-                />
-                <div style={styles.headerMain}>
-                  <div style={styles.name}>{userData && userData.username}</div>
-                  <div style={{ display: "Flex" }}>
-                    <div style={styles.date}>
-                      {moment(data && data.date).format("MMMM Do, h:mma")}
+              <Link
+                style={{ textDecoration: "none", color: "black" }}
+                to={`/Profile/${userData && userData.id}`}
+              >
+                <div style={styles.headerHelper}>
+                  {" "}
+                  <img
+                    style={styles.proImg}
+                    src={userData && userData.image}
+                    alt={userData && userData.image}
+                  />
+                  <div style={styles.headerMain}>
+                    <div style={styles.name}>
+                      {userData && userData.username}
                     </div>
-                    <div style={styles.dates}>{data && data.type}</div>
+                    <div style={{ display: "Flex" }}>
+                      <div style={styles.date}>
+                        {moment(data && data.date).format("MMMM Do, h:mma")}
+                      </div>
+                      <div style={styles.dates}>{data && data.type}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
 
               <Rating
                 name="half-rating-read"
@@ -330,4 +338,3 @@ function PostJump() {
 }
 
 export default PostJump;
-

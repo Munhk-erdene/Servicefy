@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { instance } from "../App";
+import moment from "moment";
 
 const styles = {
   ad: {
@@ -19,7 +20,11 @@ const styles = {
   },
   mapHelper: {
     padding: "0.1vh",
-    height: "100%",
+    height: "15vh",
+    width: "11vw",
+    display: "Flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
   title: {
     height: "5vh",
@@ -27,6 +32,18 @@ const styles = {
   comment: {
     display: "Flex",
     alignItems: "center",
+  },
+  doodMain: {
+    display: "Flex",
+
+    alignItems: "center",
+  },
+  comments: {
+    fontWeight: "500",
+  },
+  date: {
+    fontSize: "13px",
+    color: "gray",
   },
 };
 
@@ -44,23 +61,18 @@ const GetAllPost = () => {
     <div style={styles.mapMain} key={post.id}>
       <img style={styles.img} src={post.img} alt={post.img} />
       <div style={styles.mapHelper}>
-        <div style={styles.title} className="mainHeaderStyle">
-          {post.title}
-        </div>
         <div>
-          <div style={styles.comment}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-chat-left"
-              viewBox="0 0 16 16"
-            >
-              <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
-            </svg>
-            {post.comment.length}
+          <div style={styles.date}>
+            {moment(post.date).format("MMMM Do YYYY, h:mm a")}
           </div>
+          <div style={styles.title} className="mainHeaderStyle">
+            {post.title}
+          </div>
+        </div>
+
+        <div style={styles.comment}>
+          <div style={styles.comments}> {post.comment.length}</div>
+          <div>comments</div>
         </div>
       </div>
     </div>

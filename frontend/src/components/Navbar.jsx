@@ -10,7 +10,7 @@ function Navbar() {
             return (
               <Link
                 key={Math.random()}
-                to={`/${el.text}`}
+                to={`/${el.jump}`}
                 style={{ textDecoration: "none", color: "black" }}
               >
                 <div className="helper">

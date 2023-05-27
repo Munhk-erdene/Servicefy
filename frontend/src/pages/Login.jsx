@@ -14,7 +14,6 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    gap: "4vh",
   },
   inputMain: {
     width: "35vw",
@@ -88,9 +87,6 @@ function Login() {
   return (
     <>
       <div style={styles.Body}>
-        <div style={styles.logo}>
-          <Logo />
-        </div>
         <div style={styles.BodyChild}>
           <div>
             <h1 style={styles.h1}>

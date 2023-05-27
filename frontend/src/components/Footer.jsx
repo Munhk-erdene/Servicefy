@@ -11,6 +11,7 @@ const Footer = () => {
       alignItems: "center",
       padding: "50px 0",
       gap: "50px",
+
       marginTop: "30px",
     },
     footerTitle: {

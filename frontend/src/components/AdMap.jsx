@@ -3,10 +3,10 @@ import { Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AdTitle from "./Ad/Adtitle";
 
-const ExampleCarousel = () => {
+const AdMap = () => {
   const slides = [
     {
-      src: "https://cumongol.mn/wp-content/uploads/2022/01/70177142_2769428533105764_4513908356334747648_n-1.jpg",
+      src: "https://th.bing.com/th/id/OIP.psLUcgZpue_UBn1r38jWwQHaDt?pid=ImgDet&rs=1",
       alt: "Nice to See You",
       caption: <AdTitle>CU карт уншдаг боллоо</AdTitle>,
     },
@@ -16,7 +16,7 @@ const ExampleCarousel = () => {
       caption: <AdTitle>KFC 3дахь өдөр болгон урамшуулал зарлана</AdTitle>,
     },
     {
-      src: "https://via.placeholder.com/800x400?text=Slide+3",
+      src: "https://th.bing.com/th/id/R.c6e1806687b8b2fd3a33e34afc17852c?rik=A2HNckLcjMXu%2bw&riu=http%3a%2f%2fwww.syioknya.com%2fcustom%2fpicture%2f7410%2fsyioknya1_5bb5d6f2a396a.jpg&ehk=6qh%2f5XdSV7VxdrHpzzA8Tp5GelA6u6ysmhSw6Hs6e2o%3d&risl=&pid=ImgRaw&r=0",
       alt: "Third slide",
       caption: <AdTitle>Third slide label</AdTitle>,
     },
@@ -39,4 +39,4 @@ const ExampleCarousel = () => {
   );
 };
 
-export default ExampleCarousel;
+export default AdMap;
