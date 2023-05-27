@@ -23,7 +23,7 @@ const PostMap = ({ value }) => {
   useEffect(() => {
     getData();
   }, [data]);
-  console.log(value);
+
   const handleKeyDown = async (event) => {
     if (event.key === "Enter") {
       try {

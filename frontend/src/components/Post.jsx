@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { instance } from "../App";
 import Select from "react-select";
 import { Button } from "react-bootstrap";
-
+import { useNavigate } from "react-router-dom";
 export default function Post({ value }) {
   const [rate, SetRate] = useState("");
   const [type, setType] = useState("");
@@ -14,6 +14,7 @@ export default function Post({ value }) {
   const handleChanges = (type) => {
     setType(type.value);
   };
+  const Navigate = useNavigate();
 
   const style = {
     container: {
@@ -107,6 +108,7 @@ export default function Post({ value }) {
           token: JSON.parse(localStorage.getItem("token")),
           user_id: JSON.parse(localStorage.getItem("user_id")),
         });
+        Navigate(`/${JSON.parse(localStorage.getItem("user_id"))}`);
       } else {
         await instance.post("/Post", {
           rate: rate,
@@ -119,12 +121,11 @@ export default function Post({ value }) {
           token: JSON.parse(localStorage.getItem("token")),
           user_id: JSON.parse(localStorage.getItem("user_id")),
         });
+        Navigate(`/${JSON.parse(localStorage.getItem("user_id"))}`);
       }
       toast("Succesfull");
-      console.log();
     } catch (error) {
-      console.log(error);
-      toast.error(error.response.data.data);
+      toast.error("Дээрх бүгдийг бөглөнө үү");
     }
   };
 
@@ -137,38 +138,38 @@ export default function Post({ value }) {
             style={style.input}
             ref={title}
             type="text"
-            placeholder="title"
+            placeholder="Гарчиг"
           />
 
           <input
             style={style.input}
             ref={locate}
             type="text"
-            placeholder="locate"
+            placeholder="Байршил"
           />
           <input
             style={style.input}
             ref={img}
             type="text"
-            placeholder="image"
+            placeholder="Зураг(url)"
           />
           <input
             style={style.input}
             ref={text}
             type="text"
-            placeholder="text"
+            placeholder="Бичвэр"
           />
           <input
             style={style.input}
             ref={name}
             type="text"
-            placeholder="baigulga name"
+            placeholder="Байгуулгын нэр"
           />
           <div style={style.noneInputMain}>
             <div style={style.noneInput}>
               <Select
                 onChange={handleChange}
-                placeholder="rate"
+                placeholder="Үнэлгээ"
                 options={rates}
               />
             </div>
@@ -177,7 +178,7 @@ export default function Post({ value }) {
               <Select
                 style={style.noneInput}
                 onChange={handleChanges}
-                placeholder="type"
+                placeholder="Үйлчилгээний төрөл"
                 options={types}
               />
             </div>

@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import ViewPost from "../components/ViewPost";
-import Ad from "../components/Ad";
+
 import MainHeader from "../components/mainHeader";
+import Ad from "./Ad";
+import AdMap from "../components/AdMap";
 
 const HomeLogged = () => {
   const [admin, setAdmin] = useState();
@@ -22,8 +24,7 @@ const HomeLogged = () => {
   return (
     <div className="homeLogged">
       <MainHeader />
-      <Ad />
-      {/* {admin ? <BodyAdmin /> : <Body />} */}
+      <AdMap />
       <Navbar />
       <ViewPost />
       <Footer />

@@ -33,25 +33,15 @@ function Register() {
         toast("Succesfull");
         navigate("/");
       } catch (error) {
-        toast(error.response.data.error);
+        toast.error("Password must have 8character");
       }
     } else {
       if (switched) {
         try {
-          await instance.post("/User", {
-            username: username.current.value,
-            mail: email.current.value,
-            password: password.current.value,
-            locate: locate.current.value,
-            type: "Baigulga",
-            role: "baigulga",
-            serviceType: serviceType.current.value,
-          });
-          alert("zaswartai");
-          navigate("/");
+          toast.error("Zasvartai");
+          navigate("/Register");
         } catch (error) {
-          console.log(error);
-          toast(error.response.data.error);
+          toast.error("Zasvartai");
         }
       }
     }
