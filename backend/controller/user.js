@@ -1,5 +1,5 @@
-import User from "../model/User.js";
 import jwt from "jsonwebtoken";
+import User from "../model/user.js";
 
 export const getAllUser = async (req, res) => {
   try {
@@ -32,10 +32,9 @@ export const getUser = async (req, res) => {
   }
 };
 
-
 export const createUser = async (req, res) => {
   try {
-    const user = await User.create(req.body);;
+    const user = await User.create(req.body);
     res.status(200).send({
       success: true,
       data: user,
@@ -81,7 +80,7 @@ export const deleteUser = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const user = await User.findOne({
-    mail: req.body.mail,
+      mail: req.body.mail,
     });
     const token = jwt.sign({ ...user }, "secret", { expiresIn: "1d" });
     const boolean = await user.comparePassword(req.body.password);
@@ -109,7 +108,6 @@ export const login = async (req, res) => {
   }
 };
 
-
 export const removeSags = async (req, res) => {
   const { id } = req.params;
 
@@ -134,7 +132,6 @@ export const removeSags = async (req, res) => {
     });
   }
 };
-
 
 export const removeWishlist = async (req, res) => {
   const { id } = req.params;
