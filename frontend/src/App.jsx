@@ -19,7 +19,7 @@ import Ad from "./pages/Ad";
 import EditProfile from "./pages/EditProfile";
 export const instance = axios.create({
   // baseURL: "http://localhost:6969",
-  baseURL: "https://servicefy.onrender.com/",
+  baseURL: "https://servicefy.onrender.com",
   headers: {
     "Content-type": "application/json; charset=UTF-8",
   },
