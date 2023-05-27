@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css";
 import { useState } from "react";
 import { instance } from "../App";
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useRef } from "react";
 import CommentMap from "../components/CommentMap";
@@ -48,7 +48,7 @@ const styles = {
   },
   post: {
     width: "22vw",
-    height: "100%",
+    height: "80vh",
     marginLeft: "1%",
     overflowX: "scroll",
   },
@@ -230,14 +230,14 @@ function PostJump() {
                   src={data && data.img}
                   alt={data && data.img}
                 />
-                <div className="postJumpAd" style={styles.ad}>
+                {/* <div className="postJumpAd" style={styles.ad}>
                   “Do you have a design in mind for your blog ? Whether you
                   prefer a trendy postcard look or you’re going for a more
                   editorial style blog - there’s a stunning layout for everyone
                   . You’ll be posting loads of engaging content, so be sure to
                   keep your blog organized with Categories that also allow
                   visitors to explore more of what interests them.”
-                </div>
+                </div> */}
                 <div className="mainHeaderStyle" style={styles.text}>
                   {data && data.text}
                 </div>
