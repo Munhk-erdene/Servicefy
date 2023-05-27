@@ -5,12 +5,14 @@ import Footer from "../components/Footer";
 import ProfileMap from "../components/ProfileMap";
 import MainHeader from "../components/mainHeader";
 import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 const ProfileJump = () => {
   const styles = {
     Container: {
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
+
       height: "100vh",
       width: "100vw",
     },
@@ -32,7 +34,7 @@ const ProfileJump = () => {
       width: "100vw",
     },
     profileMain: {
-      width: "50vw",
+      width: "40vw",
       justifyContent: "flex-start",
       display: "flex",
       marginTop: "5vh",
@@ -59,11 +61,9 @@ const ProfileJump = () => {
     },
     PorfileData: {
       display: "flex",
-      justifyContent: "space-between",
 
       width: "30vw",
-      justifyContent: "space-between",
-      alignItems: "space-between",
+
       marginTop: "1vh",
       marginBottom: "1vh",
     },
@@ -80,18 +80,36 @@ const ProfileJump = () => {
       marginLeft: "0.3vw",
     },
     button: {
-      fontSize: "20px",
+      fontSize: "16px",
       borderRadius: "5px",
       backgroundColor: "#EFEFEF",
-      padding: "0px 16px",
+      padding: "0px 10px",
+      marginLeft: "20px",
+      fontWeight: "600",
     },
     header: {
       display: "flex",
-      justifyContent: "space-between",
+
       width: "30vw",
     },
     mail: {
       color: "black",
+      fontWeight: "500",
+      marginLeft: "1vw",
+    },
+    leave: {
+      width: "50px",
+      height: "50px",
+    },
+    buttonv2: {
+      fontSize: "16px",
+      borderRadius: "5px",
+      backgroundColor: "#EFEFEF",
+      padding: "0px 10px",
+      marginLeft: "10px",
+      fontWeight: "600",
+    },
+    bio: {
       fontWeight: "500",
     },
   };
@@ -99,6 +117,7 @@ const ProfileJump = () => {
   const [length, setLength] = useState();
   const [post, setPost] = useState();
   const { id } = useParams();
+  const Navigate = useNavigate();
   const getData = async () => {
     const res = await instance.get(`/User/${id}`);
     console.log(res);
@@ -106,21 +125,25 @@ const ProfileJump = () => {
     setPost(res.data.data.post);
     setLength(res.data.data.post.length);
   };
+  const leave = () => {
+    window.localStorage.clear();
+    Navigate("/");
+  };
   const clickHandler = () => {
     if (data && data.id === JSON.parse(localStorage.getItem("user_id"))) {
-      toast("");
+      Navigate(`/Edit/${JSON.parse(localStorage.getItem("user_id"))}`);
     } else {
       toast.error("You dont have any access to use");
     }
   };
+
   useEffect(() => {
     getData();
   }, []);
   return (
     <div style={styles.Container}>
-      <div>
-        <MainHeader></MainHeader>
-      </div>
+      <MainHeader></MainHeader>
+
       {data && (
         <div style={styles.helper}>
           <div style={styles.profileMain}>
@@ -133,9 +156,14 @@ const ProfileJump = () => {
             <div style={styles.profileContainer}>
               <div style={styles.header}>
                 <div style={styles.profileName}>{data && data.username}</div>
-                <button onClick={clickHandler} style={styles.button}>
-                  Edit Profile
-                </button>
+                <div style={{ display: "flex" }}>
+                  <button onClick={clickHandler} style={styles.button}>
+                    Edit Profile
+                  </button>
+                  <button style={styles.buttonv2} onClick={leave}>
+                    Leave
+                  </button>
+                </div>
               </div>
               <div style={styles.PorfileData}>
                 <div style={styles.profilePlacer}>
@@ -144,17 +172,11 @@ const ProfileJump = () => {
                   </div>
                   <div style={styles.profile}>posts</div>
                 </div>
-                <div style={styles.profilePlacer}>
-                  <div style={styles.profileLength}>10</div>
-                  <div style={styles.profile}>followers</div>
-                </div>
-                <div style={styles.profilePlacer}>
-                  <div style={styles.profileLength}>10</div>
-                  <div style={styles.profile}>following</div>
-                </div>
+                <div style={styles.mail}>{data && data.mail}</div>
               </div>
-
-              <div style={styles.mail}>{data && data.mail}</div>
+              <div className="mainHeaderStyle" style={styles.bio}>
+                {data && data.Bio}
+              </div>
             </div>
           </div>
           <div style={styles.main}>
@@ -173,11 +195,11 @@ const ProfileJump = () => {
                   })}
               </div>
             )}
+            <ToastContainer />
           </div>
         </div>
       )}
       <Footer />
-      <ToastContainer />
     </div>
   );
 };
