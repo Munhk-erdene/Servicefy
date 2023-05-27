@@ -230,14 +230,6 @@ function PostJump() {
                   src={data && data.img}
                   alt={data && data.img}
                 />
-                {/* <div className="postJumpAd" style={styles.ad}>
-                  “Do you have a design in mind for your blog ? Whether you
-                  prefer a trendy postcard look or you’re going for a more
-                  editorial style blog - there’s a stunning layout for everyone
-                  . You’ll be posting loads of engaging content, so be sure to
-                  keep your blog organized with Categories that also allow
-                  visitors to explore more of what interests them.”
-                </div> */}
                 <div className="mainHeaderStyle" style={styles.text}>
                   {data && data.text}
                 </div>
